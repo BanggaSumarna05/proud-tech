@@ -9,114 +9,142 @@ interface CTAProps {
 }
 
 export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAProps) {
-  const [selectedTier, setSelectedTier] = useState<"STARTER" | "BUSINESS" | "PROFESSIONAL" | "PREMIUM">("BUSINESS");
+  const [selectedTier, setSelectedTier] = useState<"STARTER" | "PROFESIONAL" | "CUSTOM" | "MOBILE">("PROFESIONAL");
   const [userName, setUserName] = useState("");
   const [userBusiness, setUserBusiness] = useState("");
   const { language } = useLanguage();
 
-  // Pricing Data with dynamic bilingual configurations
+  // Pricing Data sesuai price list resmi Proud Tech
   const packages = {
     STARTER: {
       name: language === "id" ? "Paket Starter" : "Starter Package",
-      price: "Rp 1.500.000",
-      target: language === "id" ? "Cocok untuk UMKM dan bisnis kecil." : "Ideal for small scale local operations.",
-      duration: language === "id" ? "⏱️ Pengerjaan: 3 - 5 Hari Kerja" : "⏱️ Delivery: 3 - 5 Business Days",
-      features: language === "id" 
-        ? [
-            "Landing Page Modern",
-            "Responsive Mobile Design",
-            "WhatsApp Live Integration",
-            "Basic SEO Optimization",
-            "Free Setup Domain & Hosting",
-          ]
-        : [
-            "Modern Landing Page",
-            "Responsive Mobile Layout",
-            "WhatsApp Chat Integration",
-            "Basic SEO Optimization",
-            "Complimentary Domain & Hot Hosting Setup",
-          ],
-      whatsappMsg: language === "id" 
-        ? "Halo Proud Tech, saya tertarik dengan Paket Starter (Rp 1.500.000) untuk bisnis saya. Mohon info lebih lengkap ya!"
-        : "Hello Proud Tech, I am interested in the Starter Package for my business. I would love to learn more!",
-    },
-    BUSINESS: {
-      name: language === "id" ? "Paket Bisnis" : "Business Package",
-      price: "Rp 3.500.000",
-      target: language === "id" ? "Cocok untuk Company Profile resmi." : "Best fit for official company profile sites.",
-      duration: language === "id" ? "⏱️ Pengerjaan: 7 - 10 Hari Kerja" : "⏱️ Delivery: 7 - 10 Business Days",
+      price: language === "id" ? "Rp 800.000 – 1.500.000" : "IDR 800K – 1.5M",
+      target: language === "id" ? "Cocok untuk: UMKM, Personal Branding, Iklan Ads." : "Ideal for: SMEs, personal branding, and ad campaigns.",
+      duration: language === "id" ? "Pengerjaan: 3 – 5 Hari Kerja" : "Delivery: 3 – 5 Business Days",
       features: language === "id"
         ? [
-            "Multi Page Website (Up to 5 Pages)",
-            "Premium Layout & Typography",
-            "SEO Optimization & Submision",
-            "Basic Admin Panel System",
-            "Contact Form Integrasi Email",
-            "Free Maintenance 1 Bulan",
+            "Landing Page (1 Halaman)",
+            "Desain Modern & Responsive Mobile",
+            "CTA WhatsApp Terintegrasi",
+            "Basic SEO",
+            "Integrasi Google Maps",
+            "Gratis Domain .my.id (1 Tahun)",
+            "Gratis Hosting (1 Tahun)",
+            "Revisi 2x",
           ]
         : [
-            "Multi Page Website (Up to 5 Pages)",
-            "Premium Layout & Typography Scale",
-            "SEO Setup & Google Index Submission",
-            "Basic Admin Panel Console",
-            "Email-Integrated Support Webform",
-            "Free Maintenance (1 Month)",
+            "Landing Page (1 Page)",
+            "Modern Design & Mobile Responsive",
+            "WhatsApp CTA Integration",
+            "Basic SEO Setup",
+            "Google Maps Integration",
+            "Free .my.id Domain (1 Year)",
+            "Free Hosting (1 Year)",
+            "2x Revisions",
           ],
       whatsappMsg: language === "id"
-        ? "Halo Proud Tech, saya tertarik dengan Paket Bisnis (Rp 3.500.000) untuk company profile bisnis saya. Mohon informasi kelanjutannya!"
-        : "Hello Proud Tech, I am interested in the Business Package for our official brand. Please advise on custom setups!",
+        ? "Halo Proud Tech, saya tertarik dengan *Paket Starter Website (Rp 800.000 – 1.500.000)* untuk bisnis saya. Mohon info lebih lengkap!"
+        : "Hello Proud Tech, I am interested in the *Starter Website Package (IDR 800K – 1.5M)* for my business. Please share more details!",
     },
-    PROFESSIONAL: {
+    PROFESIONAL: {
       name: language === "id" ? "Paket Profesional" : "Professional Package",
-      price: "Rp 7.000.000",
-      target: language === "id" ? "Cocok untuk bisnis berkembang." : "Designed for expanding growth brands.",
-      duration: language === "id" ? "⏱️ Pengerjaan: 14 - 21 Hari Kerja" : "⏱️ Delivery: 14 - 21 Business Days",
+      price: language === "id" ? "Rp 2.000.000 – 3.500.000" : "IDR 2M – 3.5M",
+      target: language === "id" ? "Cocok untuk: Company Profile, Jasa, Kontraktor." : "Best for: company profiles, service businesses, contractors.",
+      duration: language === "id" ? "Pengerjaan: 7 – 14 Hari Kerja" : "Delivery: 7 – 14 Business Days",
       features: language === "id"
         ? [
-            "Fully Custom Website Design",
-            "Advanced CSS Interaktivitas & Framer Motion",
-            "CMS (Content Management System) Integration",
-            "Modern Interactive Dashboard System",
-            "Premium UI/UX Polish",
-            "Priority 24/7 Support",
+            "5–10 Halaman Website",
+            "Custom Design Premium",
+            "CMS / Admin Panel",
+            "Optimasi Kecepatan Website",
+            "SEO On Page Lengkap",
+            "Integrasi WhatsApp & Email",
+            "Galeri & Halaman Testimoni",
+            "Gratis Domain .com (1 Tahun)",
+            "Gratis Hosting (1 Tahun)",
+            "Revisi 4x",
           ]
         : [
-            "Fully Custom Website Solutions",
-            "Advanced Motion Animations",
-            "CMS Core (Content Manager) Integrations",
-            "Modern Analytical Client Dashboards",
-            "Vibrant, High-Contrast UI/UX",
-            "24/7 Premium Priority Support Desk Code",
+            "5–10 Page Website",
+            "Custom Premium Design",
+            "CMS / Admin Panel",
+            "Website Speed Optimization",
+            "Full On-Page SEO",
+            "WhatsApp & Email Integration",
+            "Gallery & Testimonials Page",
+            "Free .com Domain (1 Year)",
+            "Free Hosting (1 Year)",
+            "4x Revisions",
           ],
       whatsappMsg: language === "id"
-        ? "Halo Proud Tech, saya ingin berkonsultasi mengenai Paket Profesional (Rp 7.000.000) untuk platform kustom saya. Kapan kita bisa diskusi?"
-        : "Hello Proud Tech, I want to inquire about the Professional Package for building custom web experiences. Let's talk!",
+        ? "Halo Proud Tech, saya tertarik dengan *Paket Profesional Website (Rp 2.000.000 – 3.500.000)* untuk company profile bisnis saya. Mohon informasi lebih lanjut!"
+        : "Hello Proud Tech, I'm interested in the *Professional Website Package (IDR 2M – 3.5M)* for our company profile. Please advise!",
     },
-    PREMIUM: {
-      name: language === "id" ? "Paket Kustom Premium" : "Premium Custom Stack",
-      price: language === "id" ? "Harga Kustom" : "Custom Tariff",
-      target: language === "id" ? "Cocok untuk startup & sistem kustom." : "Best for startups & specialized custom tools.",
-      duration: language === "id" ? "⏱️ Pengerjaan: 30+ Hari / Kustom" : "⏱️ Delivery: 30+ Days / Custom Scope",
+    CUSTOM: {
+      name: language === "id" ? "Paket Custom" : "Custom Package",
+      price: language === "id" ? "Disesuaikan " : "Customized",
+      target: language === "id" ? "Cocok untuk: Rental, Sekolah, Properti, Perusahaan." : "Built for: rentals, schools, property, enterprises.",
+      duration: language === "id" ? "Pengerjaan: Sesuai Scope Project" : "Delivery: Based on Project Scope",
       features: language === "id"
         ? [
-            "Full Custom Web Development",
-            "Full Web App Architecture",
-            "Third-party API & OAuth Integrations",
-            "Sleek Admin Management Dashboards",
-            "Consultancy & Database Optimization",
-            "Highly Scalable Cloud Architecture",
+            "Web App Custom Full",
+            "Sistem Sesuai Kebutuhan Bisnis",
+            "API Integration",
+            "Multi Role Management",
+            "Dashboard Analytics",
+            "Security Optimization",
+            "Scalability Support",
+            "Maintenance & Support Prioritas",
+            "Gratis Domain & Hosting Premium",
+            "Source Code Full Diserahkan",
           ]
         : [
-            "Custom-Architected Web Applications",
-            "Enterprise API & OAuth Protocols",
-            "Secure, Scalable Serverless Integrations",
-            "Sleek Interactive Real-time Statistics Screen",
-            "Bespoke System Infrastructure Audits",
-            "Modern Container & CDN Load Balancing",
+            "Full Custom Web Application",
+            "Business-Specific System Architecture",
+            "API Integration",
+            "Multi-Role User Management",
+            "Analytics Dashboard",
+            "Security Optimization",
+            "Scalability Support",
+            "Priority Maintenance & Support",
+            "Free Premium Domain & Hosting",
+            "Full Source Code Handover",
           ],
       whatsappMsg: language === "id"
-        ? "Halo Proud Tech, bisnis kami membutuhkan solusi sistem kustom berskala besar (Paket Premium). Saya ingin mendiskusikan kebutuhan arsitektur kami."
-        : "Hello Proud Tech, our enterprise requires bespoke digital solutions. Let's schedule a dedicated scoping call.",
+        ? "Halo Proud Tech, bisnis saya butuh *Paket Custom Website/App* (mulai Rp 4.000.000). Saya ingin mendiskusikan kebutuhan spesifik sistem kami lebih lanjut!"
+        : "Hello Proud Tech, I need a *Custom Website/App Package* (from IDR 4M). I'd like to discuss our specific system requirements!",
+    },
+    MOBILE: {
+      name: language === "id" ? "Aplikasi Mobile" : "Mobile App",
+      price: language === "id" ? "Mulai Rp 2.500.000" : "Starting IDR 2.5M",
+      target: language === "id" ? "Cocok untuk: UMKM, Toko Online, Layanan Jasa." : "Perfect for: SMEs, online stores, and service businesses.",
+      duration: language === "id" ? "Pengerjaan: 7 – 21 Hari Kerja" : "Delivery: 7 – 21 Business Days",
+      features: language === "id"
+        ? [
+            "Android & iOS (1 atau 2 Platform)",
+            "Desain UI Modern & Responsif",
+            "Navigasi Bottom Tab",
+            "Login & Registrasi User",
+            "Integrasi REST API / Backend",
+            "Push Notification",
+            "Integrasi WhatsApp & Social",
+            "Hingga 15 Halaman/Screen",
+            "Revisi 2–4x",
+          ]
+        : [
+            "Android & iOS (1 or 2 Platforms)",
+            "Modern & Responsive UI Design",
+            "Bottom Tab Navigation",
+            "User Login & Registration",
+            "REST API / Backend Integration",
+            "Push Notifications",
+            "WhatsApp & Social Integration",
+            "Up to 15 Screens/Pages",
+            "2–4x Revisions",
+          ],
+      whatsappMsg: language === "id"
+        ? "Halo Proud Tech, saya tertarik dengan *Paket Aplikasi Mobile* (mulai Rp 2.500.000). Mohon informasi lebih lengkap mengenai fitur dan paket yang tersedia!"
+        : "Hello Proud Tech, I'm interested in the *Mobile App Package* (starting IDR 2.5M). Please share more info about available features and plans!",
     },
   };
 
@@ -167,19 +195,27 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
             <div>
               {/* Custom Package Selector Pills */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-8 bg-[#eeeeea] p-1.5 rounded-2xl border border-brand-border/40">
-                {(Object.keys(packages) as Array<keyof typeof packages>).map((tier) => (
-                  <button
-                    key={tier}
-                    onClick={() => setSelectedTier(tier)}
-                    className={`py-3 px-2 rounded-xl text-center font-display font-black text-xxs tracking-normal uppercase transition-all cursor-pointer ${
-                      selectedTier === tier
-                        ? "bg-brand-blue text-white shadow-md scale-102"
-                        : "text-brand-dark/65 hover:text-brand-blue hover:bg-black/5"
-                    }`}
-                  >
-                    {tier}
-                  </button>
-                ))}
+                {(Object.keys(packages) as Array<keyof typeof packages>).map((tier) => {
+                  const tabLabels: Record<keyof typeof packages, { id: string; en: string }> = {
+                    STARTER:    { id: "Starter",       en: "Starter" },
+                    PROFESIONAL:{ id: "Profesional",   en: "Professional" },
+                    CUSTOM:     { id: "Custom",         en: "Custom" },
+                    MOBILE:     { id: "Mobile App",     en: "Mobile App" },
+                  };
+                  return (
+                    <button
+                      key={tier}
+                      onClick={() => setSelectedTier(tier)}
+                      className={`py-3 px-2 rounded-xl text-center font-display font-black text-xxs tracking-normal uppercase transition-all cursor-pointer ${
+                        selectedTier === tier
+                          ? "bg-brand-blue text-white shadow-md scale-102"
+                          : "text-brand-dark/65 hover:text-brand-blue hover:bg-black/5"
+                      }`}
+                    >
+                      {language === "id" ? tabLabels[tier].id : tabLabels[tier].en}
+                    </button>
+                  );
+                })}
               </div>
 
               {/* Active Package Details View */}
@@ -242,15 +278,24 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
               </motion.div>
             </div>
 
-            {/* Small note panel */}
+            {/* Note panel with add-ons */}
             <div className="mt-8 bg-brand-bg border border-brand-border/80 rounded-2xl p-4 flex gap-3.5 items-start">
               <Info className="w-5 h-5 text-brand-blue shrink-0 mt-0.5" />
-              <div className="text-xxs leading-relaxed text-brand-dark/60 font-medium">
-                <span className="font-bold text-brand-dark uppercase">{language === "id" ? "SUDAH TERMASUK:" : "ALL PLANS INCLUDE:"}</span>{" "}
-                {language === "id"
-                  ? "Domain .com/.id (1 tahun), cloud hosting SSD, SSL gratis, setup teknis awal, dan garansi support 30 hari setelah go-live."
-                  : "Domain .com/.id (1 year), SSD cloud hosting, free SSL, initial technical setup, and 30-day post-launch support guarantee."
-                }
+              <div className="text-xxs leading-relaxed text-brand-dark/60 font-medium space-y-1">
+                <p>
+                  <span className="font-bold text-brand-dark uppercase">{language === "id" ? "SUDAH TERMASUK:" : "ALL PLANS INCLUDE:"}</span>{" "}
+                  {language === "id"
+                    ? "Domain, hosting SSD, SSL gratis, setup teknis awal, dan garansi support 30 hari setelah go-live."
+                    : "Domain, SSD hosting, free SSL, initial technical setup, and 30-day post-launch support."
+                  }
+                </p>
+                <p>
+                  <span className="font-bold text-brand-blue uppercase">{language === "id" ? "ADD-ON TERSEDIA:" : "ADD-ONS AVAILABLE:"}</span>{" "}
+                  {language === "id"
+                    ? "Blog/Artikel Rp500rb · Sistem Booking Rp1.5jt · Multi Bahasa Rp750rb · Membership/Login Rp1jt · Maintenance Bulanan mulai Rp250rb/bln"
+                    : "Blog System IDR 500K · Booking System IDR 1.5M · Multi-Language IDR 750K · Membership/Login IDR 1M · Monthly Maintenance from IDR 250K/mo"
+                  }
+                </p>
               </div>
             </div>
 
