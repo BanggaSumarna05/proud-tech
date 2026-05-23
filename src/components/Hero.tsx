@@ -89,7 +89,7 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
           >
             <div className="absolute inset-4 rounded-full bg-gradient-to-br from-brand-blue/15 via-brand-lime/10 to-transparent blur-2xl pointer-events-none" />
             <motion.img
-              src="/images/character-waving.png"
+              src="/images/character-waving.webp"
               alt="Proud Tech 3D Mascot"
               loading="eager"
               decoding="async"
@@ -172,7 +172,7 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
           {/* Glowing backdrop circle behind character */}
           <div className="absolute inset-4 rounded-full bg-gradient-to-br from-brand-blue/15 via-brand-lime/10 to-transparent blur-2xl pointer-events-none" />
           <motion.img
-            src="/images/character-waving.png"
+            src="/images/character-waving.webp"
             alt="Proud Tech 3D Mascot"
             loading="eager"
             decoding="async"

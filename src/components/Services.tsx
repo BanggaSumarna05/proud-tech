@@ -111,7 +111,7 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
             </p>
             {/* 3D Character with holographic screen */}
             <motion.img
-              src="/images/character-holographic.png"
+              src="/images/character-holographic.webp"
               alt="3D Character with holographic interface"
               loading="lazy"
               className="hidden lg:block w-[160px] h-[160px] object-contain drop-shadow-xl flex-shrink-0"

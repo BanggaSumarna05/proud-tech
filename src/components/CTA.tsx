@@ -341,7 +341,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
                 </div>
                 {/* 3D Character sitting with laptop */}
                 <motion.img
-                  src="/images/character-sitting.jpg"
+                  src="/images/character-sitting.webp"
                   alt="3D Character with laptop"
                   loading="lazy"
                   className="hidden sm:block w-[120px] h-[120px] object-contain rounded-2xl flex-shrink-0"

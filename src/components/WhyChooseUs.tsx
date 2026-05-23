@@ -84,7 +84,7 @@ export default function WhyChooseUs() {
           </p>
           {/* 3D Character with laptop floating on the side */}
           <motion.img
-            src="/images/character-laptop.png"
+            src="/images/character-laptop.webp"
             alt="3D Developer with laptop and screens"
             loading="lazy"
             className="hidden xl:block absolute -right-64 top-1/2 -translate-y-1/2 w-[220px] h-[220px] object-contain drop-shadow-2xl"

@@ -23,7 +23,7 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
       stats: language === "id" ? "Katalog Kreatif · Desain Estetik" : "Creative Catalog · Aesthetic Layout",
       color: "from-amber-800 to-amber-950",
       featured: false,
-      image: "/images/Kebutuhan Website/foto portofolio/Kopi Bangga/Screenshot (547).png",
+      image: "/images/Kebutuhan Website/foto portofolio/Kopi Bangga/Screenshot (547).webp",
       features: ["Aesthetic Layout", "Artisan Catalog", "Mobile Responsive"],
     },
     {
@@ -36,7 +36,7 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
       stats: language === "id" ? "Navigasi Google Maps · Katalog Cepat" : "Maps Routing · Lightning Load",
       color: "from-[#0D5B41] to-[#043322]",
       featured: false,
-      image: "/images/Kebutuhan Website/foto portofolio/Landing Page Warung PBM/Screenshot (306) - Salin.png",
+      image: "/images/Kebutuhan Website/foto portofolio/Landing Page Warung PBM/Screenshot (306) - Salin.webp",
       features: ["Interactive Google Map", "Product Showcases", "Fast Load Speed"],
     },
     {
@@ -49,7 +49,7 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
       stats: language === "id" ? "Booking Cepat · Kelola Armada" : "Fast Booking · Fleet Management",
       color: "from-blue-600 to-indigo-900",
       featured: true,
-      image: "/images/Kebutuhan Website/foto portofolio/Cja Rent Car Web App/Screenshot (389).png",
+      image: "/images/Kebutuhan Website/foto portofolio/Cja Rent Car Web App/Screenshot (389).webp",
       features: ["Fleet Control", "WhatsApp Integration", "Fast Load"],
     },
     {
@@ -62,7 +62,7 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
       stats: language === "id" ? "Arus Kas Otomatis · Laporan Instan" : "Auto Cash Flow · Instant Reports",
       color: "from-emerald-800 to-teal-900",
       featured: false,
-      image: "/images/Kebutuhan Website/foto portofolio/Dashboard Keuangan CV. Kerabat Wisata/Sistem Informasi Kas Masuk dan Keluar Rental CV.Kerabat Wisata.png",
+      image: "/images/Kebutuhan Website/foto portofolio/Dashboard Keuangan CV. Kerabat Wisata/Sistem Informasi Kas Masuk dan Keluar Rental CV.Kerabat Wisata.webp",
       features: ["Financial Audit", "Analytical Charts", "Secure Database"],
     },
     {
@@ -75,7 +75,7 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
       stats: language === "id" ? "Portal Informasi · Administrasi Mahasiswa" : "Info Portal · Student Admin",
       color: "from-purple-950 to-brand-blue",
       featured: true,
-      image: "/images/Kebutuhan Website/foto portofolio/Sistem Informasi BEM FIKES/Sistem Informasi BEM FIKES UMTAS.png",
+      image: "/images/Kebutuhan Website/foto portofolio/Sistem Informasi BEM FIKES/Sistem Informasi BEM FIKES UMTAS.webp",
       features: ["Integrated API", "News & Event Hub", "Clean Layout"],
     },
     {
@@ -88,7 +88,7 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
       stats: language === "id" ? "Data Terpusat · Database Skalabel" : "Centralized Data · Scalable Database",
       color: "from-amber-700 to-rose-950",
       featured: false,
-      image: "/images/Kebutuhan Website/foto portofolio/Sistem Infornasi NAWADIKTI/Sistem Infomasi NAWADIKTI.png",
+      image: "/images/Kebutuhan Website/foto portofolio/Sistem Infornasi NAWADIKTI/Sistem Infomasi NAWADIKTI.webp",
       features: ["Data Analytics", "Auth Security", "Cloud Ready"],
     },
     {
@@ -101,7 +101,7 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
       stats: language === "id" ? "SaaS Multi-tenant · Cloud ERP" : "Multi-tenant SaaS · Cloud ERP",
       color: "from-[#17161a] to-[#252329]",
       featured: false,
-      image: "/images/Kebutuhan Website/foto portofolio/saas rental mobil/Screenshot (435).png",
+      image: "/images/Kebutuhan Website/foto portofolio/saas rental mobil/Screenshot (435).webp",
       features: ["SaaS Architecture", "Branch Delegation", "P&L Statements"],
     },
   ];

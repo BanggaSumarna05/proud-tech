@@ -6,9 +6,9 @@ export default function ClientLogos() {
   const { language } = useLanguage();
 
   const brands = [
-    { name: "BEM FIKES", image: "/images/Kebutuhan Website/logo mitra/logo BEM Fikes.png" },
-    { name: "CJA Rent Car", image: "/images/Kebutuhan Website/logo mitra/logo CJA Ren Car.JPG" },
-    { name: "Proud Tech", image: "/images/Kebutuhan Website/Logo Proud Tech di nav.png" },
+    { name: "BEM FIKES", image: "/images/Kebutuhan Website/logo mitra/logo BEM Fikes.webp" },
+    { name: "CJA Rent Car", image: "/images/Kebutuhan Website/logo mitra/logo CJA Ren Car.webp" },
+    { name: "Proud Tech", image: "/images/Kebutuhan Website/Logo Proud Tech di nav.webp" },
   ];
 
   return (

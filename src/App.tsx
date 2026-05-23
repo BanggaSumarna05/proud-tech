@@ -43,7 +43,28 @@ export default function App() {
   const [selectedCaseStudyProject, setSelectedCaseStudyProject] = useState<string | null>(null);
   const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [loadBelowFold, setLoadBelowFold] = useState(false);
   const { language } = useLanguage();
+
+  // Defer loading heavy below-the-fold components
+  useEffect(() => {
+    const timer = setTimeout(() => setLoadBelowFold(true), 2000);
+    const handleInteraction = () => {
+      setLoadBelowFold(true);
+      window.removeEventListener('scroll', handleInteraction);
+      window.removeEventListener('mousemove', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+    };
+    window.addEventListener('scroll', handleInteraction, { passive: true });
+    window.addEventListener('mousemove', handleInteraction, { passive: true });
+    window.addEventListener('touchstart', handleInteraction, { passive: true });
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleInteraction);
+      window.removeEventListener('mousemove', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+    };
+  }, []);
 
   // Scroll progress bar
   const { scrollYProgress } = useScroll();
@@ -131,68 +152,72 @@ export default function App() {
         />
 
         {/* Suspense Wrapper for Lazy Loaded Components */}
-        <Suspense fallback={<div className="h-20 w-full flex items-center justify-center text-brand-blue animate-pulse">Loading...</div>}>
-          {/* 1.5. Brand Client Logos Marquee */}
-          <SectionReveal delay={0}><ClientLogos /></SectionReveal>
+        {loadBelowFold && (
+          <Suspense fallback={<div className="h-20 w-full flex items-center justify-center text-brand-blue animate-pulse">Loading...</div>}>
+            {/* 1.5. Brand Client Logos Marquee */}
+            <SectionReveal delay={0}><ClientLogos /></SectionReveal>
 
-          {/* 2. Horizontal Tech Mockup Showcase */}
-          <SectionReveal delay={0.05}><Showcase /></SectionReveal>
+            {/* 2. Horizontal Tech Mockup Showcase */}
+            <SectionReveal delay={0.05}><Showcase /></SectionReveal>
 
-          {/* 3. Our Corporate Services */}
-          <SectionReveal delay={0.05}>
-            <Services 
-              onOpenConsultation={handleOpenConsultationDirectly} 
+            {/* 3. Our Corporate Services */}
+            <SectionReveal delay={0.05}>
+              <Services 
+                onOpenConsultation={handleOpenConsultationDirectly} 
+              />
+            </SectionReveal>
+
+            {/* 4. Why Clients Trust Proud Tech */}
+            <SectionReveal delay={0.05}><WhyChooseUs /></SectionReveal>
+
+            {/* 5. Custom Live Portfolios with Interactive Case Studies */}
+            <SectionReveal delay={0.05}>
+              <Portfolio 
+                onSelectProject={handleSelectProjectEnquiry} 
+                onViewCaseStudy={(projectName) => {
+                  setSelectedCaseStudyProject(projectName);
+                  setIsCaseStudyOpen(true);
+                }}
+              />
+            </SectionReveal>
+
+            {/* Case Study Detailed Modal Overlay */}
+            <CaseStudyModal 
+              isOpen={isCaseStudyOpen}
+              onClose={() => setIsCaseStudyOpen(false)}
+              projectName={selectedCaseStudyProject}
+              onConsult={handleSelectProjectEnquiry}
             />
-          </SectionReveal>
 
-          {/* 4. Why Clients Trust Proud Tech */}
-          <SectionReveal delay={0.05}><WhyChooseUs /></SectionReveal>
+            {/* 6. Dynamic Roadmap Process */}
+            <SectionReveal delay={0.05}><Process /></SectionReveal>
 
-          {/* 5. Custom Live Portfolios with Interactive Case Studies */}
-          <SectionReveal delay={0.05}>
-            <Portfolio 
-              onSelectProject={handleSelectProjectEnquiry} 
-              onViewCaseStudy={(projectName) => {
-                setSelectedCaseStudyProject(projectName);
-                setIsCaseStudyOpen(true);
-              }}
-            />
-          </SectionReveal>
+            {/* 7. Centered Big Brand Slogan */}
+            <SectionReveal delay={0.05}><Motivation /></SectionReveal>
 
-          {/* Case Study Detailed Modal Overlay */}
-          <CaseStudyModal 
-            isOpen={isCaseStudyOpen}
-            onClose={() => setIsCaseStudyOpen(false)}
-            projectName={selectedCaseStudyProject}
-            onConsult={handleSelectProjectEnquiry}
-          />
+            {/* Client Testimonial Carousel */}
+            <SectionReveal delay={0.05}><Testimonials /></SectionReveal>
 
-          {/* 6. Dynamic Roadmap Process */}
-          <SectionReveal delay={0.05}><Process /></SectionReveal>
+            {/* FAQ - Frequently Asked Questions Accordion Block */}
+            <SectionReveal delay={0.05}><FAQ /></SectionReveal>
 
-          {/* 7. Centered Big Brand Slogan */}
-          <SectionReveal delay={0.05}><Motivation /></SectionReveal>
-
-          {/* Client Testimonial Carousel */}
-          <SectionReveal delay={0.05}><Testimonials /></SectionReveal>
-
-          {/* FAQ - Frequently Asked Questions Accordion Block */}
-          <SectionReveal delay={0.05}><FAQ /></SectionReveal>
-
-          {/* 8. Combined Pricing & Consultation */}
-          <SectionReveal delay={0.05}>
-            <CTA 
-              initialSelectedPackage={selectedPackForCTA}
-              onOpenConsultation={handleOpenConsultationDirectly} 
-            />
-          </SectionReveal>
-        </Suspense>
+            {/* 8. Combined Pricing & Consultation */}
+            <SectionReveal delay={0.05}>
+              <CTA 
+                initialSelectedPackage={selectedPackForCTA}
+                onOpenConsultation={handleOpenConsultationDirectly} 
+              />
+            </SectionReveal>
+          </Suspense>
+        )}
       </main>
 
       {/* 9. Footer */}
-      <Suspense fallback={null}>
-        <Footer onScrollToSection={scrollToSection} />
-      </Suspense>
+      {loadBelowFold && (
+        <Suspense fallback={null}>
+          <Footer onScrollToSection={scrollToSection} />
+        </Suspense>
+      )}
 
       {/* ── Scroll-to-Top Button ── */}
       <AnimatePresence>

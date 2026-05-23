@@ -112,7 +112,7 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
               aria-label="Proud Tech Logo"
             >
               <img 
-                src="/images/Kebutuhan Website/Logo Proud Tech di nav.png" 
+                src="/images/Kebutuhan Website/Logo Proud Tech di nav.webp" 
                 alt="Proud Tech Logo"
                 loading="eager"
                 decoding="async"
