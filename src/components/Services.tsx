@@ -14,11 +14,11 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
       id: "web-dev",
       title: language === "id" ? "Pengembangan Website" : "Website Development",
       description: language === "id"
-        ? "Kami membangun website profil perusahaan, e-commerce, dan landing page modern yang cepat, aman, dan dioptimasi penuh untuk konversi penjualan."
-        : "We build modern, fast, secure corporate websites, e-commerce, and high-converting landing pages fully optimized for sales.",
+        ? "Tidak perlu bayar desainer mahal. Kami bangun website profesional untuk bisnis Anda dari nol — tampil kredibel, mudah ditemukan di Google, dan siap terima orderan 24 jam."
+        : "No need to hire an expensive designer. We build your professional business website from scratch — credible appearance, discoverable on Google, ready to receive orders around the clock.",
       benefit: language === "id" 
-        ? "🎯 Bisnis Tampil Kredibel & Banjir Orderan 24 Jam" 
-        : "🎯 High Brand Authority & 24/7 Global Sales Flow",
+        ? "✅ Siap online dalam 3-5 hari kerja" 
+        : "✅ Live online in 3-5 business days",
       icon: Monitor,
       features: language === "id"
         ? [
@@ -39,11 +39,11 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
       id: "mob-app",
       title: language === "id" ? "Aplikasi Mobile" : "Mobile App Development",
       description: language === "id"
-        ? "Pengembangan aplikasi Android & iOS native/cross-platform dengan performa lancar, antarmuka premium, dan pengalaman pengguna tingkat tinggi."
-        : "Native & cross-platform Android & iOS app development with fluid performance, premium interfaces, and rich user experiences.",
+        ? "Pelanggan Anda bisa memesan, melihat katalog, dan menghubungi bisnis Anda langsung dari HP mereka. Aplikasi premium yang membuat bisnis Anda selalu ada di genggaman klien."
+        : "Your customers can browse, order, and contact your business directly from their phones. A premium app that keeps your brand always within reach of every client.",
       benefit: language === "id" 
-        ? "🎯 Retensi Pelanggan Kuat & Akses Instan Genggaman" 
-        : "🎯 Maximum Customer Loyalty & Push-Sales Power",
+        ? "✅ Pelanggan pesan langsung dari HP mereka" 
+        : "✅ Customers order directly from their phones",
       icon: Smartphone,
       features: language === "id"
         ? [
@@ -64,11 +64,11 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
       id: "uiux-des",
       title: language === "id" ? "Desain UI/UX" : "UI/UX Design",
       description: language === "id"
-        ? "Kami merancang wireframe, user flow, hingga visual interface yang menawan, intuitif, serta mencerminkan kepribadian unik brand Anda."
-        : "We craft gorgeous, intuitive wireframes, user flows, and visual interfaces that deeply express your brand's unique identity.",
+        ? "Tampilan yang membuat pelanggan langsung percaya. Kami rancang visual brand Anda menjadi intuitif, modern, dan memorable — sehingga pengunjung tidak perlu berpikir dua kali untuk menghubungi Anda."
+        : "A look that instantly builds trust. We design your brand's visual experience to be intuitive, modern, and memorable — so visitors don't hesitate to reach out to you.",
       benefit: language === "id" 
-        ? "🎯 Konversi Melejit dengan Keindahan Visual Premium" 
-        : "🎯 Double Visual Conversion Rates with High-End UI",
+        ? "✅ Tampilan profesional yang langsung dipercaya" 
+        : "✅ Professional look that instantly builds trust",
       icon: Palette,
       features: language === "id"
         ? [
@@ -92,7 +92,7 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
       <div className="max-w-7xl mx-auto">
         
         {/* Main Section Header with Left-Right Distribution */}
-        <div className="bg-white border border-brand-border rounded-[32px] p-8 md:p-12 mb-16 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm relative overflow-hidden">
+        <div className="bg-white border border-brand-border rounded-[32px] p-6 sm:p-8 md:p-12 mb-16 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm relative overflow-hidden">
           <div className="md:max-w-md">
             <span className="font-display font-medium text-xs tracking-widest text-brand-blue uppercase bg-brand-blue/10 px-4.5 py-2 rounded-full border border-brand-blue/10">
               {language === "id" ? "⚡ LAYANAN UTAMA" : "⚡ MAIN SERVICES"}
@@ -135,7 +135,7 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className={`relative rounded-[28px] p-8 flex flex-col justify-between transition-all duration-300 shadow-md ${
+                className={`relative rounded-[28px] p-6 lg:p-8 flex flex-col justify-between transition-all duration-300 shadow-md ${
                   service.highlight
                     ? "bg-brand-blue text-white border-2 border-brand-lime"
                     : "bg-white text-brand-dark border border-brand-border/80"
@@ -226,7 +226,7 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
                       : "bg-[#121215] text-white hover:bg-brand-blue border-transparent shadow-md hover:scale-102"
                   }`}
                 >
-                  {language === "id" ? "Pesan Layanan ini" : "Order This Service"}
+                  {language === "id" ? "Mulai Konsultasi Gratis →" : "Start Free Consultation →"}
                 </button>
               </motion.div>
             );

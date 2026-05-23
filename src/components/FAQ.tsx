@@ -56,23 +56,23 @@ export default function FAQ() {
     {
       id: "faq-4",
       question: {
-        id: "Bagaimana Proud Tech memastikan website dioptimasi untuk Google?",
-        en: "How does Proud Tech ensure our website is SEO optimized?",
+        id: "Apakah bisnis kecil atau warung saya perlu punya website?",
+        en: "Does my small business or local shop really need a website?",
       },
       answer: {
-        id: "Setiap baris kode kami dikalibrasi sesuai standar modern dengan target kecepatan muat tinggi (rata-rata skor Google PageSpeed di atas 90%), optimasi gambar responsif, tag heading hierarki yang rapi, kompresi berkas, sitemap.xml otomatis, serta pendaftaran manual langsung ke mesin indeksasi Google Search Console.",
-        en: "Every line of code is structured to ensure fast rendering speeds (regularly securing Google PageSpeed metric scores above 90%), using responsive image optimization, semantic heading layouts, custom assets caching, automated xml sitemaps, and manual index submissions directly to Google Search Console.",
+        id: "Sangat perlu! Di era sekarang, 70%+ konsumen mencari rekomendasi bisnis lewat Google sebelum membeli. Tanpa website, bisnis Anda tidak terlihat dan kalah saing dari kompetitor yang sudah online. Website bukan lagi mewah — ini kebutuhan dasar agar UMKM dan usaha lokal Anda bisa ditemukan, dipercaya, dan menghasilkan pelanggan baru setiap hari tanpa biaya iklan besar.",
+        en: "Absolutely! Over 70% of consumers today Google a business before making a purchase decision. Without a website, your business is invisible and loses ground to competitors who are already online. A website is no longer a luxury — it's the essential foundation for any local business to be discovered, trusted, and generate new customers daily without massive ad spending.",
       },
     },
     {
       id: "faq-5",
       question: {
-        id: "Bagaimana termin skema pembayaran pengerjaan proyeknya?",
-        en: "How is the project payment milestone structured?",
+        id: "Apa bedanya website dari Proud Tech vs. buat sendiri di Canva atau Wix?",
+        en: "What's the difference between a Proud Tech website vs. building it myself on Canva or Wix?",
       },
       answer: {
-        id: "Sistem pembayaran kami menggunakan model termin transparan: Uang Muka (DP) sebesar 50% dibayarkan di awal saat kesepakatan riset desain dimulai, dan sisa pelunasan 50% dibayarkan setelah seluruh fitur website selesai dirakit, divalidasi presisi sesuai keinginan Anda, dan siap diluncurkan di server produksi (Go Live).",
-        en: "We align project payments transparently inside a 2-stage milestone: a 50% Down Payment at project kickoff to lock detailed UI prototypes, and the final 50% balance after complete development has been tested, finalized to your absolute satisfaction, and is ready for production rollout (Go Live).",
+        id: "Platform drag-and-drop seperti Wix atau Canva memang mudah, tapi hasilnya: template generik yang sama dengan ribuan bisnis lain, kecepatan loading lambat (PageSpeed rendah), tidak ada SEO teknis yang benar, dan Anda tetap bayar biaya langganan bulanan seumur hidup. Website dari Proud Tech: desain 100% kustom sesuai brand Anda, kecepatan tinggi (rata-rata PageSpeed 92+), struktur SEO yang benar agar muncul di Google, domain dan hosting milik Anda sendiri, dan dukungan langsung dari developer nyata — bukan template.",
+        en: "Drag-and-drop tools like Wix or Canva are convenient, but come with real limitations: generic templates shared by thousands of other businesses, slow loading speeds (poor PageSpeed scores), no proper technical SEO, and you'll pay monthly subscription fees forever. A Proud Tech website gives you: 100% custom design matching your brand identity, high performance (average PageSpeed 92+), proper SEO structure to rank on Google, domain & hosting you own, and direct support from real developers — not templates.",
       },
     },
     {
@@ -199,7 +199,7 @@ export default function FAQ() {
             <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
               <HelpCircle className="w-5 h-5 animate-pulse" />
             </div>
-            <div className="text-left">
+            <div className="text-center sm:text-left">
               <p className="font-display font-bold text-xs text-brand-dark uppercase tracking-wide">
                 {language === "id" ? "Punya Pertanyaan Spesifik?" : "HAVE ANOTHER QUESTION?"}
               </p>

@@ -126,12 +126,12 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
           </div>
           
           {/* Navigation Category Filters */}
-          <div className="flex flex-wrap items-center gap-2 bg-[#eeeeea] border border-brand-border/60 p-1.5 rounded-full shadow-inner">
+          <div className="flex flex-nowrap items-center gap-2 bg-[#eeeeea] border border-brand-border/60 p-1.5 rounded-full shadow-inner overflow-x-auto scrollbar-none max-w-full">
             {(["ALL", "WEB", "APP", "UIUX"] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-5 py-2 rounded-full font-display font-bold text-xxs tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                className={`shrink-0 px-5 py-2 rounded-full font-display font-bold text-xxs tracking-wider uppercase transition-all duration-300 cursor-pointer ${
                   activeTab === tab
                     ? "bg-brand-blue text-white shadow-sm"
                     : "text-brand-dark/60 hover:text-brand-blue hover:bg-black/5"

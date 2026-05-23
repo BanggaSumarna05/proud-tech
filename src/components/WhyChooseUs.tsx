@@ -12,55 +12,55 @@ export default function WhyChooseUs() {
     {
       title: language === "id" ? "Desain Responsif Modern" : "Modern Responsive Design",
       desc: language === "id"
-        ? "Setiap antarmuka website dikalibrasi presisi agar menyajikan tampilan menawan dan responsif di smartphone, tablet, maupun layar desktop."
-        : "Every interface is precisely calibrated to deliver beautiful, responsive performance across smartphones, tablets, and desktop displays.",
+        ? "Setiap antarmuka website dikalibrasi presisi agar menyajikan tampilan menawan di smartphone, tablet, maupun desktop. Diuji pada 10+ ukuran layar berbeda."
+        : "Every interface is precisely calibrated for beautiful performance across smartphones, tablets, and desktops. Tested across 10+ screen sizes.",
       icon: MonitorSmartphone,
       color: "from-brand-blue/10 to-transparent",
     },
     {
-      title: language === "id" ? "Performa Cepat" : "Fast Performance",
+      title: language === "id" ? "Performa Super Cepat" : "Lightning-Fast Performance",
       desc: language === "id"
-        ? "Menghasilkan kecepatan load secepat kilat dengan optimalisasi aset, code-splitting, dan best practices performa web terkini."
-        : "Delivering lightning-fast load times through optimized assets, smart code-splitting, and modern web performance best practices.",
+        ? "Rata-rata Google PageSpeed Score kami di atas 92 — dengan load time halaman di bawah 1.5 detik untuk pengalaman pengguna kelas atas."
+        : "Our average Google PageSpeed score exceeds 92 — with page load times under 1.5 seconds for a premium user experience.",
       icon: Zap,
       color: "from-brand-lime/15 to-transparent",
     },
     {
-      title: language === "id" ? "Optimasi SEO" : "SEO Optimization",
+      title: language === "id" ? "Optimasi SEO Google" : "Google SEO Optimization",
       desc: language === "id"
-        ? "Optimasi tag meta SEO, data terstruktur, dan performa tinggi agar website Anda mudah ditemukan di halaman pertama Google."
-        : "Meta tag optimization, structured data, and high velocity metrics to ensure your website secures high Google search results.",
+        ? "Struktur SEO teknis yang benar: sitemap otomatis, schema markup, dan meta tag teroptimasi. Klien kami rata-rata masuk halaman 1 Google dalam 30-60 hari."
+        : "Proper technical SEO: automated sitemaps, schema markup, and optimized meta tags. Our clients typically reach Google page 1 within 30-60 days.",
       icon: Compass,
       color: "from-brand-blue/10 to-transparent",
     },
     {
       title: language === "id" ? "UI/UX Premium" : "Premium UI/UX",
       desc: language === "id"
-        ? "Fokus mendalam pada tipografi, visual rhythm, dan animasi interaktif mikro yang meningkatkan prestise serta reputasi bisnis Anda."
-        : "Deep attention to elegant typography, visual rhythm, and micro-interactions that elevate your brand's authority.",
+        ? "Desain yang langsung membangun kepercayaan. Lebih dari 85 klien membuktikan bahwa tampilan profesional meningkatkan konversi hingga 2-3x lipat."
+        : "Design that instantly builds trust. Over 85 clients confirm that professional visuals increase conversion rates by 2-3x.",
       icon: Sparkles,
       color: "from-brand-lime/15 to-transparent",
     },
     {
-      title: language === "id" ? "Dukungan Cepat" : "Fast Support",
+      title: language === "id" ? "Dukungan Responsif" : "Responsive Support",
       desc: language === "id"
-        ? "Bantuan konsultasi gratis, respons tanggap keluhan, dan dukungan teknis harian pasca serah terima project yang ramah."
-        : "Complimentary consulting, responsive troubleshooting, and daily friendly support long after project handover.",
+        ? "Respon konsultasi rata-rata di bawah 15 menit selama jam kerja. Garansi support gratis 30 hari penuh setelah website go-live."
+        : "Average consultation response under 15 minutes during working hours. 30-day free support guarantee after your website goes live.",
       icon: Headphones,
       color: "from-brand-blue/10 to-transparent",
     },
     {
       title: language === "id" ? "Solusi Berorientasi Bisnis" : "Business-Oriented Solutions",
       desc: language === "id"
-        ? "Setiap fitur kami bangun secara efisien dengan tujuan murni membantu pertumbuhan penjualan dan kepercayaan klien."
-        : "Every line of code and visual component is engineered with one core objective: helping your business drive conversions.",
+        ? "Setiap fitur kami bangun dengan tujuan nyata: meningkatkan penjualan dan kepercayaan. 2+ tahun pengalaman membangun solusi digital untuk UMKM Indonesia."
+        : "Every feature built with one real goal: increasing sales and trust. 2+ years building digital solutions for Indonesian small-to-medium businesses.",
       icon: TrendingUp,
       color: "from-brand-lime/15 to-transparent",
     },
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28 px-6 bg-[#121215] text-white rounded-[32px] mx-6 my-12 relative overflow-hidden">
+    <section id="about" className="py-20 md:py-28 px-6 bg-[#121215] text-white rounded-[32px] mx-4 sm:mx-6 my-12 relative overflow-hidden">
       
       {/* Absolute Decorative Circles */}
       <div className="absolute top-0 left-0 w-80 h-80 rounded-full bg-brand-blue/15 blur-[120px] pointer-events-none" />
@@ -148,8 +148,8 @@ export default function WhyChooseUs() {
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-1 bg-white/5 px-4 py-2 rounded-full border border-white/5">
-            <Heart className="w-3.5 h-3.5 text-brand-lime fill-brand-lime animate-pulse" />
+          <div className="flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-start gap-1.5 bg-white/5 px-4 py-2.5 rounded-2xl sm:rounded-full border border-white/5 text-center">
+            <Heart className="w-3.5 h-3.5 text-brand-lime fill-brand-lime animate-pulse shrink-0" />
             <span className="text-[10px] font-display font-bold text-white/80 uppercase">
               {language === "id" ? "Bangga Kami Mendukung UMKM" : "PROUDLY SUPPORTING SMALL BUSINESSES"}
             </span>

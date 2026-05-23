@@ -12,6 +12,7 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isAlertVisible, setIsAlertVisible] = useState(true);
   const { language, setLanguage, t } = useLanguage();
 
   const menuItems = [
@@ -27,6 +28,12 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
+      }
+      // Hide announcement bar after scrolling 120px
+      if (window.scrollY > 120) {
+        setIsAlertVisible(false);
+      } else {
+        setIsAlertVisible(true);
       }
     };
 
@@ -73,7 +80,7 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
   return (
     <>
       {/* 2026 High Prestige Top Feature Alert Bar */}
-      <div className="fixed top-0 inset-x-0 z-50 h-7 bg-[#111115] flex items-center justify-center text-[10px] font-mono text-brand-lime font-bold tracking-widest px-4 border-b border-white/5 select-none uppercase">
+      <div className={`fixed top-0 inset-x-0 z-50 h-7 bg-[#111115] flex items-center justify-center text-[10px] font-mono text-brand-lime font-bold tracking-widest px-4 border-b border-white/5 select-none uppercase transition-transform duration-300 ${isAlertVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <span className="flex items-center gap-1.5 animate-pulse">
           <Sparkles className="w-3 h-3 text-brand-lime fill-brand-lime shrink-0" />
           {language === "id" 
@@ -107,7 +114,7 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
               <img 
                 src="/images/Kebutuhan Website/Logo Proud Tech di nav.png" 
                 alt="Proud Tech Logo"
-                className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-8 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </button>
  
@@ -119,10 +126,10 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
                   <button
                     key={item.id}
                     onClick={() => handleItemClick(item.id)}
-                    className={`relative py-1.5 px-3 font-display font-black text-xxs tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                    className={`relative py-1.5 px-3 font-display font-black text-xxs tracking-wider uppercase transition-all duration-300 cursor-pointer rounded-full ${
                       isActive 
-                        ? "text-brand-blue" 
-                        : "text-brand-dark/75 hover:text-brand-blue"
+                        ? "text-brand-blue bg-brand-blue/8" 
+                        : "text-brand-dark/75 hover:text-brand-blue hover:bg-brand-blue/5"
                     }`}
                   >
                     <span className="relative z-10">{item.name}</span>
@@ -179,7 +186,7 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
             <button
               id="desktop-contact-btn"
               onClick={onOpenConsultation}
-              className="group flex items-center gap-2 bg-[#121215] hover:bg-brand-blue hover:text-white text-white font-display font-extrabold text-xs tracking-tight uppercase px-5 py-2.5 rounded-full border border-white/10 shadow-md transition-all duration-300 cursor-pointer hover:scale-102 active:scale-98"
+              className="group flex items-center gap-2 bg-brand-blue hover:bg-brand-blue/90 text-white font-display font-extrabold text-xs tracking-tight uppercase px-5 py-2.5 rounded-full shadow-md ring-2 ring-brand-lime/40 transition-all duration-300 cursor-pointer hover:scale-102 active:scale-98 hover:ring-brand-lime/70"
             >
               {t("nav.contact_us")}
               <span className="w-5 h-5 rounded-full bg-brand-lime text-brand-dark group-hover:bg-white group-hover:text-brand-blue flex items-center justify-center transition-colors duration-300">
@@ -225,7 +232,7 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
 
       {/* Mobile Drawer Container */}
       <div
-        className={`fixed top-0 right-0 bottom-0 w-[80%] max-w-xs bg-white border-l border-brand-border/60 z-50 p-8 flex flex-col justify-between md:hidden transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) ${
+        className={`fixed top-0 right-0 bottom-0 w-[80%] max-w-xs bg-white border-l border-brand-border/60 z-50 p-8 flex flex-col justify-between overflow-y-auto md:hidden transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) ${
           isMobileMenuOpen ? "transform translate-x-0" : "transform translate-x-full"
         }`}
       >

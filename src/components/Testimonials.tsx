@@ -23,7 +23,7 @@ export default function Testimonials() {
       role: language === "id" ? "Pendiri & Pemilik" : "Founder & CEO",
       company: "CV. Kerabat Wisata",
       rating: 5,
-      project: language === "id" ? "Dashboard Keuangan CV. Kerabat Wisata" : "Dashboard Keuangan CV. Kerabat Wisata",
+      project: language === "id" ? "Dashboard Keuangan" : "Finance Dashboard",
       feedback: language === "id"
         ? "Sistem pembukuan kas rental kami jadi 3x lipat lebih rapi dan laporan bulanan selesai instan dalam hitungan detik. Kami sangat terbantu dengan analisis keuntungan otomatis yang disajikan di dashboard!"
         : "Our bookkeeping is now 3x more organized, and monthly cash flow statements generate instantly. The automated profit and loss analysis dashboards have completely upgraded our business control!",
@@ -35,11 +35,35 @@ export default function Testimonials() {
       role: language === "id" ? "Ketua Umum" : "President of Student Board",
       company: "BEM FIKES UMTAS",
       rating: 5,
-      project: language === "id" ? "Sistem Informasi BEM FIKES" : "Sistem Informasi BEM FIKES",
+      project: language === "id" ? "Portal Sistem Informasi" : "Information System Portal",
       feedback: language === "id"
         ? "Desain portalnya sangat modern, cepat diakses, dan memudahkan pengumpulan berkas kegiatan mahasiswa. Kerja sama dengan tim developer Proud Tech berjalan sangat komunikatif dan terstruktur rapi!"
         : "The student portal design is exceptionally modern, fast, and makes event document submissions effortless. Collaborating with the developer team at Proud Tech was highly structured and professional!",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80",
+    },
+    {
+      id: "test-4",
+      name: "Rina Marlina",
+      role: language === "id" ? "Pemilik Usaha" : "Business Owner",
+      company: "Dapur Rina Catering",
+      rating: 5,
+      project: language === "id" ? "Landing Page Catering" : "Catering Landing Page",
+      feedback: language === "id"
+        ? "Sebelum punya website dari Proud Tech, saya hanya dapat orderan dari mulut ke mulut. Sekarang orderan datang setiap hari dari Google! Prosesnya cepat, timnya sabar menjelaskan, dan hasilnya jauh melampaui ekspektasi saya."
+        : "Before getting a website from Proud Tech, I only got orders by word of mouth. Now orders come in daily from Google! The process was fast, the team was patient, and the results far exceeded my expectations.",
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150&q=80",
+    },
+    {
+      id: "test-5",
+      name: "Dimas Prasetyo",
+      role: language === "id" ? "CEO & Co-Founder" : "CEO & Co-Founder",
+      company: "TechStart Indonesia",
+      rating: 5,
+      project: language === "id" ? "Platform Web App" : "Web Application Platform",
+      feedback: language === "id"
+        ? "Proud Tech berhasil membangun platform web app kami dalam waktu yang sangat singkat dengan kualitas kode yang sangat bersih. Fitur admin panel-nya intuitif dan tim selalu responsif setiap ada kebutuhan revisi atau penyesuaian."
+        : "Proud Tech successfully built our web app platform in record time with extremely clean code quality. The admin panel is intuitive and the team is always responsive for any revision or adjustment needs.",
+      avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150&q=80",
     },
   ];
 
@@ -67,56 +91,64 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Testimonials 3-Card Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch max-w-7xl mx-auto">
-          {testimonials.map((test) => (
+        {/* Testimonials Grid — handles 3 or 5 cards gracefully */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch max-w-7xl mx-auto">
+          {testimonials.map((test, idx) => (
             <div 
               key={test.id}
-              className="bg-white border border-brand-border rounded-[32px] p-8 shadow-sm flex flex-col justify-between relative group hover:shadow-md hover:border-brand-blue/30 transition-all duration-300"
+              className={`bg-white border border-brand-border rounded-[28px] p-7 shadow-sm flex flex-col justify-between relative group hover:shadow-lg hover:border-brand-blue/30 transition-all duration-300 ${
+                idx === 0 ? 'md:col-span-2 lg:col-span-1' : ''
+              }`}
             >
               {/* Huge quote dynamic bg */}
-              <Quote className="absolute top-6 right-8 w-16 h-16 text-brand-blue/5 pointer-events-none" />
+              <Quote className="absolute top-6 right-7 w-14 h-14 text-brand-blue/4 pointer-events-none" />
 
               <div>
-                {/* Verified Lencana */}
-                <div className="flex justify-between items-center mb-6">
+                {/* Top row: Verified badge + Stars */}
+                <div className="flex justify-between items-center mb-5">
                   <div className="flex items-center gap-1.5 bg-brand-lime/10 border border-brand-lime/20 px-3 py-1 rounded-full text-brand-blue font-display font-extrabold text-[9px] tracking-wider uppercase">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-blue" />
-                    {language === "id" ? "Kemitraan Terverifikasi" : "Verified Client"}
+                    {language === "id" ? "Klien Terverifikasi" : "Verified Client"}
                   </div>
                   
-                  {/* Stars Rating */}
+                  {/* Stars Rating — enlarged */}
                   <div className="flex items-center gap-0.5">
                     {[...Array(test.rating)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-brand-lime text-brand-lime" />
+                      <Star key={i} className="w-4 h-4 fill-brand-lime text-brand-lime" />
                     ))}
                   </div>
                 </div>
 
                 {/* Feedback Quote */}
-                <blockquote className="text-sm md:text-base text-brand-dark/85 font-sans leading-relaxed font-semibold italic pl-3 border-l-2 border-brand-blue mb-8">
+                <blockquote className="text-sm text-brand-dark/85 font-sans leading-relaxed font-semibold italic pl-3 border-l-2 border-brand-blue mb-6">
                   "{test.feedback}"
                 </blockquote>
               </div>
 
-              {/* Client Profile Card Header */}
-              <div className="flex items-center gap-4 mt-auto pt-6 border-t border-brand-border/60">
+              {/* Client Profile Footer */}
+              <div className="flex items-center gap-4 mt-auto pt-5 border-t border-brand-border/60">
+                {/* Avatar — enlarged */}
                 <img 
                   src={test.avatar} 
                   alt={test.name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-brand-lime shadow-sm shrink-0"
+                  className="w-14 h-14 rounded-full object-cover border-2 border-brand-lime shadow-sm shrink-0"
                 />
-                <div className="text-left">
+                <div className="text-left flex-1 min-w-0">
                   <h4 className="font-display font-black text-sm text-brand-dark leading-none mb-1">
                     {test.name}
                   </h4>
                   <p className="text-brand-dark/50 text-[10px] leading-tight font-semibold">
-                    {test.role}, <span className="text-brand-dark/80 font-bold">{test.company}</span>
+                    {test.role}
                   </p>
-                  <p className="text-brand-blue font-mono text-[9px] uppercase font-bold tracking-wider mt-1">
-                    {test.project}
-                  </p>
+                  {/* Company badge — more prominent */}
+                  <span className="inline-block mt-1.5 bg-brand-blue/8 border border-brand-blue/15 text-brand-blue font-mono text-[9px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-md">
+                    {test.company}
+                  </span>
                 </div>
+                {/* Project tag */}
+                <span className="hidden sm:block text-right text-brand-blue/60 font-mono text-[8px] uppercase font-bold tracking-wider leading-tight max-w-[80px] shrink-0">
+                  {test.project}
+                </span>
               </div>
             </div>
           ))}

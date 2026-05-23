@@ -148,12 +148,12 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
             {language === "id" ? "PAKET INVESTASI DIGITAL" : "DIGITAL PLANS & RATES"}
           </span>
           <h2 className="font-display font-black text-4xl md:text-5xl text-brand-dark mt-4 tracking-tight uppercase">
-            {language === "id" ? "PAKET KONSULTASI & HARGA" : "CONSULTATION pricing"}
+            {language === "id" ? "PAKET & HARGA LAYANAN" : "PLANS & PRICING"}
           </h2>
           <p className="text-brand-dark/75 text-sm mt-3 leading-relaxed">
             {language === "id"
-              ? "Pilihlah skema paket investas yang paling ideal dengan visi pertumbuhan bisnis Anda. Konsultasikan modifikasi fitur sesuka hati."
-              : "Choose the pricing layout that best aligns with your business goals. Realize modifications freely with our friendly engineers."
+              ? "Pilih paket yang paling sesuai dengan kebutuhan bisnis Anda. Semua harga termasuk domain, hosting, dan konsultasi gratis."
+              : "Choose the package that best fits your business. All plans include domain, hosting, and a free consultation session."
             }
           </p>
         </div>
@@ -162,7 +162,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* LEFT: PRICING TAB SELECTION & INFRASTRUCTURE (7 Columns) */}
-          <div className="lg:col-span-7 flex flex-col justify-between bg-white border border-brand-border rounded-[32px] p-8 shadow-sm">
+          <div className="lg:col-span-7 flex flex-col justify-between bg-white border border-brand-border rounded-[32px] p-6 sm:p-8 shadow-sm">
             
             <div>
               {/* Custom Package Selector Pills */}
@@ -198,22 +198,30 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
                     <p className="text-brand-dark/65 text-xs font-sans mt-0.5">
                       {packages[selectedTier].target}
                     </p>
-                    <div className="flex flex-wrap items-center gap-2.5 mt-3">
-                      <span className="bg-brand-blue/5 border border-brand-blue/10 px-3 py-1 rounded-full text-[10px] font-display font-extrabold text-brand-blue">
-                        {packages[selectedTier].duration}
-                      </span>
-                      <span className="bg-brand-lime/10 border border-brand-lime/25 px-3 py-1 rounded-full text-[10px] font-display font-extrabold text-brand-blue flex items-center gap-1">
-                        🛡️ {language === "id" ? "Garansi Revisi Sepuasnya" : "Unlimited Revisions"}
-                      </span>
-                    </div>
                   </div>
                   
                   {/* Huge Styled Price Badge */}
-                  <div className="bg-brand-lime/35 border border-brand-lime/80 px-6 py-3 rounded-2xl text-right">
+                  <div className="bg-brand-lime/35 border border-brand-lime/80 px-6 py-3 rounded-2xl text-left sm:text-right w-full sm:w-auto shrink-0">
                     <span className="font-sans font-medium text-[9px] text-[#1f1f1f]/60 uppercase tracking-widest block font-bold">
                       {language === "id" ? "INVESTASI MULAI" : "INVESTMENT STARTS FROM"}
                     </span>
                     <span className="font-display font-black text-xl md:text-2xl text-brand-blue block tracking-tight">{packages[selectedTier].price}</span>
+                  </div>
+                </div>
+
+                {/* Delivery Time + Revision guarantee — prominent block */}
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <div className="flex items-center gap-2 bg-brand-blue/5 border border-brand-blue/15 px-3.5 py-2 rounded-xl">
+                    <span className="text-brand-blue text-sm">⏱️</span>
+                    <span className="text-[11px] font-display font-extrabold text-brand-blue">
+                      {packages[selectedTier].duration.replace('⏱️ ', '')}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-brand-lime/10 border border-brand-lime/25 px-3.5 py-2 rounded-xl">
+                    <span className="text-sm">🛡️</span>
+                    <span className="text-[11px] font-display font-extrabold text-brand-blue">
+                      {language === "id" ? "Garansi Revisi Sepuasnya" : "Unlimited Revisions"}
+                    </span>
                   </div>
                 </div>
 
@@ -238,29 +246,47 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
             <div className="mt-8 bg-brand-bg border border-brand-border/80 rounded-2xl p-4 flex gap-3.5 items-start">
               <Info className="w-5 h-5 text-brand-blue shrink-0 mt-0.5" />
               <div className="text-xxs leading-relaxed text-brand-dark/60 font-medium">
-                <span className="font-bold text-brand-dark uppercase">{language === "id" ? "KUSTOMISASI BEBAS:" : "ENTIRE FREEDOM:"}</span>{" "}
+                <span className="font-bold text-brand-dark uppercase">{language === "id" ? "SUDAH TERMASUK:" : "ALL PLANS INCLUDE:"}</span>{" "}
                 {language === "id"
-                  ? "Semua skema di atas menggunakan domain berkualitas .com/.id selama 1 tahun penuh, server cloud SSD, keamanan SSL, dan optimasi load cepat dari tim internal Proud Tech."
-                  : "Every active package includes clean hosting frameworks, SSD storage systems, premium SSL configurations, and optimized loading speed protocols from our in-house team."
+                  ? "Domain .com/.id (1 tahun), cloud hosting SSD, SSL gratis, setup teknis awal, dan garansi support 30 hari setelah go-live."
+                  : "Domain .com/.id (1 year), SSD cloud hosting, free SSL, initial technical setup, and 30-day post-launch support guarantee."
                 }
               </div>
             </div>
 
+            {/* Post-pricing direct WhatsApp CTA */}
+            <a
+              href={`https://wa.me/6285861985540?text=${encodeURIComponent(packages[selectedTier].whatsappMsg)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 flex items-center justify-center gap-2 text-brand-blue font-display font-extrabold text-xs tracking-wide hover:underline underline-offset-4 cursor-pointer group"
+            >
+              <span>{language === "id" ? `Tanya langsung soal ${packages[selectedTier].name} →` : `Ask us about ${packages[selectedTier].name} directly →`}</span>
+            </a>
+
           </div>
 
           {/* RIGHT: CONTACT FORM & INTERACTIVE CTA (5 Columns) */}
-          <div className="lg:col-span-5 bg-[#121215] text-white border border-brand-border/10 rounded-[32px] p-8 shadow-lg relative overflow-hidden flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-[#121215] text-white border border-brand-border/10 rounded-[32px] p-6 sm:p-8 shadow-lg relative overflow-hidden flex flex-col justify-between">
             {/* Ambient glowing spotlight background */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none" />
 
             <div>
+              {/* Urgency strip */}
+              <div className="mb-5 flex items-center gap-2.5 bg-red-500/10 border border-red-400/30 rounded-2xl px-4 py-2.5">
+                <span className="text-base animate-bounce">🔥</span>
+                <p className="text-[11px] font-display font-extrabold text-red-400 uppercase tracking-wide">
+                  {language === "id" ? "Slot Pengerjaan Bulan Ini Hampir Penuh — Konsultasi Sekarang!" : "This Month's Dev Slots Almost Full — Book Your Spot Now!"}
+                </p>
+              </div>
+
               {/* Character + Header Row */}
               <div className="flex items-start gap-4 mb-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-4">
                     <Star className="w-4 h-4 text-brand-lime fill-brand-lime animate-pulse" />
                     <span className="font-display font-bold text-xxs tracking-widest text-[#D9FF3F] uppercase">
-                      {language === "id" ? "KONSULTASI INSTAN" : "INSTANT SCENE CONSULTATION"}
+                      {language === "id" ? "KONSULTASI GRATIS — TANPA BIAYA" : "FREE CONSULTATION — ZERO COST"}
                     </span>
                   </div>
                   

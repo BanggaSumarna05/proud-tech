@@ -128,7 +128,7 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
           initial={{ opacity: 0, scale: 0.85, x: 40 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex-shrink-0 relative w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] lg:w-[540px] lg:h-[540px]"
+          className="flex-shrink-0 relative w-full max-w-[280px] sm:max-w-[420px] lg:max-w-[540px] aspect-square"
         >
           {/* Glowing backdrop circle behind character */}
           <div className="absolute inset-4 rounded-full bg-gradient-to-br from-brand-blue/15 via-brand-lime/10 to-transparent blur-2xl pointer-events-none" />

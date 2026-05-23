@@ -276,7 +276,7 @@ export default function CaseStudyModal({ isOpen, onClose, projectName, onConsult
               </div>
 
               {/* Technical Specifications Grid details */}
-              <div className="grid grid-cols-2 gap-4 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
                 
                 {/* Tech Stack bullet items */}
                 <div className="space-y-1.5">
@@ -293,7 +293,7 @@ export default function CaseStudyModal({ isOpen, onClose, projectName, onConsult
                 </div>
 
                 {/* Duration item */}
-                <div className="space-y-1.5 pl-4 border-l border-brand-border/60">
+                <div className="space-y-1.5 sm:pl-4 sm:border-l border-l-0 pl-0 border-brand-border/60">
                   <h5 className="font-display font-bold text-xxs tracking-wider text-brand-dark/60 uppercase font-mono">
                     ⏱️ {language === "id" ? "Waktu Pengerjaan" : "Delivery Timeline"}
                   </h5>

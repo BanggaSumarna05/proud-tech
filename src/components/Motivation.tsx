@@ -6,7 +6,7 @@ export default function Motivation() {
   const { language } = useLanguage();
 
   return (
-    <section id="motivation" className="py-24 md:py-32 px-6 relative overflow-hidden bg-[#121215] text-white rounded-[32px] mx-6 my-16 text-center">
+    <section id="motivation" className="py-24 md:py-32 px-6 relative overflow-hidden bg-[#121215] text-white rounded-[32px] mx-4 sm:mx-6 my-16 text-center">
       
       {/* Decorative Glowing Gradients under typography */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[400px] rounded-full bg-brand-blue/15 blur-[120px] pointer-events-none" />
