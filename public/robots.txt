@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://proud-tech.vercel.app/sitemap.xml

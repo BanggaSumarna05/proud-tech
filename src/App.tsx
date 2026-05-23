@@ -1,4 +1,4 @@
-import { useState, FormEvent, useEffect } from "react";
+import React, { useState, FormEvent, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ClientLogos from "./components/ClientLogos";

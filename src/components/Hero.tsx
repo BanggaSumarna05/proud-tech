@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowUpRight, Sparkles, Star, ChevronRight, Activity, Users, Flame } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -9,6 +9,11 @@ interface HeroProps {
 
 export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProps) {
   const { t, language } = useLanguage();
+  
+  // Parallax background scroll effects
+  const { scrollY } = useScroll();
+  const orbY = useTransform(scrollY, [0, 1000], [0, 350]);
+  const meshY = useTransform(scrollY, [0, 1000], [0, 150]);
 
   return (
     <section
@@ -16,10 +21,16 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
       className="relative min-h-screen flex flex-col justify-center items-center pt-28 pb-12 overflow-hidden px-6"
     >
       {/* Absolute Ambient Background Vectors & Sparks (like design reference) */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-lime/15 via-brand-blue/5 to-transparent blur-[120px] pointer-events-none" />
+      <motion.div 
+        style={{ y: orbY }} 
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-lime/15 via-brand-blue/5 to-transparent blur-[120px] pointer-events-none" 
+      />
       
       {/* Mesh Grid Backdrop */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:32px_32px] md:bg-[size:48px_48px] pointer-events-none opacity-50" />
+      <motion.div 
+        style={{ y: meshY }}
+        className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:32px_32px] md:bg-[size:48px_48px] pointer-events-none opacity-50" 
+      />
 
       {/* Blue Sparkle/Asterisk Icons floating */}
       <motion.div
