@@ -1,22 +1,24 @@
-import React, { useState, FormEvent, useEffect } from "react";
+import React, { useState, FormEvent, useEffect, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import ClientLogos from "./components/ClientLogos";
-import Showcase from "./components/Showcase";
-import Services from "./components/Services";
-import WhyChooseUs from "./components/WhyChooseUs";
-import Portfolio from "./components/Portfolio";
-import CaseStudyModal from "./components/CaseStudyModal";
-import Process from "./components/Process";
-import Motivation from "./components/Motivation";
-import CTA from "./components/CTA";
-import FAQ from "./components/FAQ";
-import Testimonials from "./components/Testimonials";
-import Footer from "./components/Footer";
 import PageLoader from "./components/PageLoader";
 import { useLanguage } from "./context/LanguageContext";
 import { MessageCircle, X, Send, ArrowUp } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
+
+// Lazy loaded components (Below the fold)
+const ClientLogos = React.lazy(() => import("./components/ClientLogos"));
+const Showcase = React.lazy(() => import("./components/Showcase"));
+const Services = React.lazy(() => import("./components/Services"));
+const WhyChooseUs = React.lazy(() => import("./components/WhyChooseUs"));
+const Portfolio = React.lazy(() => import("./components/Portfolio"));
+const CaseStudyModal = React.lazy(() => import("./components/CaseStudyModal"));
+const Process = React.lazy(() => import("./components/Process"));
+const Motivation = React.lazy(() => import("./components/Motivation"));
+const CTA = React.lazy(() => import("./components/CTA"));
+const FAQ = React.lazy(() => import("./components/FAQ"));
+const Testimonials = React.lazy(() => import("./components/Testimonials"));
+const Footer = React.lazy(() => import("./components/Footer"));
 
 // ── Helper: Smooth section reveal on scroll ──
 function SectionReveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -128,64 +130,69 @@ export default function App() {
           onOpenConsultation={handleOpenConsultationDirectly} 
         />
 
-        {/* 1.5. Brand Client Logos Marquee */}
-        <SectionReveal delay={0}><ClientLogos /></SectionReveal>
+        {/* Suspense Wrapper for Lazy Loaded Components */}
+        <Suspense fallback={<div className="h-20 w-full flex items-center justify-center text-brand-blue animate-pulse">Loading...</div>}>
+          {/* 1.5. Brand Client Logos Marquee */}
+          <SectionReveal delay={0}><ClientLogos /></SectionReveal>
 
-        {/* 2. Horizontal Tech Mockup Showcase */}
-        <SectionReveal delay={0.05}><Showcase /></SectionReveal>
+          {/* 2. Horizontal Tech Mockup Showcase */}
+          <SectionReveal delay={0.05}><Showcase /></SectionReveal>
 
-        {/* 3. Our Corporate Services */}
-        <SectionReveal delay={0.05}>
-          <Services 
-            onOpenConsultation={handleOpenConsultationDirectly} 
+          {/* 3. Our Corporate Services */}
+          <SectionReveal delay={0.05}>
+            <Services 
+              onOpenConsultation={handleOpenConsultationDirectly} 
+            />
+          </SectionReveal>
+
+          {/* 4. Why Clients Trust Proud Tech */}
+          <SectionReveal delay={0.05}><WhyChooseUs /></SectionReveal>
+
+          {/* 5. Custom Live Portfolios with Interactive Case Studies */}
+          <SectionReveal delay={0.05}>
+            <Portfolio 
+              onSelectProject={handleSelectProjectEnquiry} 
+              onViewCaseStudy={(projectName) => {
+                setSelectedCaseStudyProject(projectName);
+                setIsCaseStudyOpen(true);
+              }}
+            />
+          </SectionReveal>
+
+          {/* Case Study Detailed Modal Overlay */}
+          <CaseStudyModal 
+            isOpen={isCaseStudyOpen}
+            onClose={() => setIsCaseStudyOpen(false)}
+            projectName={selectedCaseStudyProject}
+            onConsult={handleSelectProjectEnquiry}
           />
-        </SectionReveal>
 
-        {/* 4. Why Clients Trust Proud Tech */}
-        <SectionReveal delay={0.05}><WhyChooseUs /></SectionReveal>
+          {/* 6. Dynamic Roadmap Process */}
+          <SectionReveal delay={0.05}><Process /></SectionReveal>
 
-        {/* 5. Custom Live Portfolios with Interactive Case Studies */}
-        <SectionReveal delay={0.05}>
-          <Portfolio 
-            onSelectProject={handleSelectProjectEnquiry} 
-            onViewCaseStudy={(projectName) => {
-              setSelectedCaseStudyProject(projectName);
-              setIsCaseStudyOpen(true);
-            }}
-          />
-        </SectionReveal>
+          {/* 7. Centered Big Brand Slogan */}
+          <SectionReveal delay={0.05}><Motivation /></SectionReveal>
 
-        {/* Case Study Detailed Modal Overlay */}
-        <CaseStudyModal 
-          isOpen={isCaseStudyOpen}
-          onClose={() => setIsCaseStudyOpen(false)}
-          projectName={selectedCaseStudyProject}
-          onConsult={handleSelectProjectEnquiry}
-        />
+          {/* Client Testimonial Carousel */}
+          <SectionReveal delay={0.05}><Testimonials /></SectionReveal>
 
-        {/* 6. Dynamic Roadmap Process */}
-        <SectionReveal delay={0.05}><Process /></SectionReveal>
+          {/* FAQ - Frequently Asked Questions Accordion Block */}
+          <SectionReveal delay={0.05}><FAQ /></SectionReveal>
 
-        {/* 7. Centered Big Brand Slogan */}
-        <SectionReveal delay={0.05}><Motivation /></SectionReveal>
-
-        {/* Client Testimonial Carousel */}
-        <SectionReveal delay={0.05}><Testimonials /></SectionReveal>
-
-        {/* FAQ - Frequently Asked Questions Accordion Block */}
-        <SectionReveal delay={0.05}><FAQ /></SectionReveal>
-
-        {/* 8. Combined Pricing & Consultation */}
-        <SectionReveal delay={0.05}>
-          <CTA 
-            initialSelectedPackage={selectedPackForCTA}
-            onOpenConsultation={handleOpenConsultationDirectly} 
-          />
-        </SectionReveal>
+          {/* 8. Combined Pricing & Consultation */}
+          <SectionReveal delay={0.05}>
+            <CTA 
+              initialSelectedPackage={selectedPackForCTA}
+              onOpenConsultation={handleOpenConsultationDirectly} 
+            />
+          </SectionReveal>
+        </Suspense>
       </main>
 
       {/* 9. Footer */}
-      <Footer onScrollToSection={scrollToSection} />
+      <Suspense fallback={null}>
+        <Footer onScrollToSection={scrollToSection} />
+      </Suspense>
 
       {/* ── Scroll-to-Top Button ── */}
       <AnimatePresence>

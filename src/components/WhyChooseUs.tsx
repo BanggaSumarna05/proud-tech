@@ -86,6 +86,7 @@ export default function WhyChooseUs() {
           <motion.img
             src="/images/character-laptop.png"
             alt="3D Developer with laptop and screens"
+            loading="lazy"
             className="hidden xl:block absolute -right-64 top-1/2 -translate-y-1/2 w-[220px] h-[220px] object-contain drop-shadow-2xl"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}

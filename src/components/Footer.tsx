@@ -49,6 +49,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
               <img 
                 src="/images/Kebutuhan Website/Logo Proud Tech di nav.png" 
                 alt="Proud Tech Logo"
+                loading="lazy"
                 className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </button>

@@ -343,6 +343,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
                 <motion.img
                   src="/images/character-sitting.jpg"
                   alt="3D Character with laptop"
+                  loading="lazy"
                   className="hidden sm:block w-[120px] h-[120px] object-contain rounded-2xl flex-shrink-0"
                   initial={{ opacity: 0, scale: 0.85 }}
                   whileInView={{ opacity: 1, scale: 1 }}

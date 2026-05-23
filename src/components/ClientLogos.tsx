@@ -50,7 +50,8 @@ export default function ClientLogos() {
                   >
                     <img 
                       src={brand.image} 
-                      alt={brand.name} 
+                      alt={brand.name}
+                      loading="lazy"
                       className="max-w-full max-h-full object-contain filter grayscale opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300 shrink-0"
                     />
                   </div>

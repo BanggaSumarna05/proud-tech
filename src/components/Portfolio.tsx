@@ -168,6 +168,7 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
                     <img 
                       src={project.image} 
                       alt={project.title}
+                      loading="lazy"
                       className="absolute inset-0 w-full h-full object-cover group-hover/image:scale-105 transition-transform duration-500"
                     />
                   ) : (

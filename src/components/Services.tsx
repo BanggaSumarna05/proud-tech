@@ -113,6 +113,7 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
             <motion.img
               src="/images/character-holographic.png"
               alt="3D Character with holographic interface"
+              loading="lazy"
               className="hidden lg:block w-[160px] h-[160px] object-contain drop-shadow-xl flex-shrink-0"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
