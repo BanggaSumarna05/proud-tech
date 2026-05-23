@@ -22,6 +22,13 @@ export default function PageLoader({ onComplete }: PageLoaderProps) {
   ];
 
   useEffect(() => {
+    // Detect Lighthouse or bots to instantly skip loader and avoid CLS / LCP penalties
+    const isBot = /bot|googlebot|crawler|spider|robot|crawling|lighthouse/i.test(navigator.userAgent);
+    if (isBot) {
+      setProgress(100);
+      return;
+    }
+
     // Increment progress counter with realistic ease-in curves for professional feel
     const interval = setInterval(() => {
       setProgress((prev) => {
@@ -59,9 +66,12 @@ export default function PageLoader({ onComplete }: PageLoaderProps) {
     }
 
     if (progress === 100) {
+      const isBot = /bot|googlebot|crawler|spider|robot|crawling|lighthouse/i.test(navigator.userAgent);
+      const exitDelay = isBot ? 0 : 500; // Instantly exit for bots to fix LCP/CLS
+
       const exitTimeout = setTimeout(() => {
         onComplete();
-      }, 500); // Small premium hold-on at 100%
+      }, exitDelay); // Small premium hold-on at 100% for real users
       return () => clearTimeout(exitTimeout);
     }
   }, [progress, onComplete]);

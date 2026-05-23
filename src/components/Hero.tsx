@@ -92,6 +92,7 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
               src="/images/character-waving.webp"
               alt="Proud Tech 3D Mascot"
               loading="eager"
+              fetchPriority="high"
               decoding="async"
               width={380}
               height={380}
@@ -175,6 +176,7 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
             src="/images/character-waving.webp"
             alt="Proud Tech 3D Mascot"
             loading="eager"
+            fetchPriority="high"
             decoding="async"
             width={540}
             height={540}
