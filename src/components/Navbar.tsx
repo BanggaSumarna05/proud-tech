@@ -114,6 +114,10 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
               <img 
                 src="/images/Kebutuhan Website/Logo Proud Tech di nav.png" 
                 alt="Proud Tech Logo"
+                loading="eager"
+                decoding="async"
+                width={80}
+                height={24}
                 className="h-8 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </button>

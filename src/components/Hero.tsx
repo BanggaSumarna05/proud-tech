@@ -91,6 +91,10 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
             <motion.img
               src="/images/character-waving.png"
               alt="Proud Tech 3D Mascot"
+              loading="eager"
+              decoding="async"
+              width={380}
+              height={380}
               className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -170,6 +174,10 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
           <motion.img
             src="/images/character-waving.png"
             alt="Proud Tech 3D Mascot"
+            loading="eager"
+            decoding="async"
+            width={540}
+            height={540}
             className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
