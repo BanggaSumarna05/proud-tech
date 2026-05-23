@@ -51,13 +51,13 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
         
         {/* Left: Text Content */}
         <div className="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start">
-        
+
           {/* Dynamic Glow Badge */} 
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2.5 bg-brand-blue hover:bg-brand-dark transition-all duration-300 px-5 py-2.5 rounded-full border border-white/10 shadow-md text-white md:mb-6 mb-4 mt-6 transform hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2.5 bg-brand-blue hover:bg-brand-dark transition-all duration-300 px-5 py-2.5 rounded-full border border-white/10 shadow-md text-white mb-4 mt-6 transform hover:-translate-y-0.5"
           >
             <span className="flex h-2 w-2 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-lime opacity-75"></span>
@@ -67,6 +67,30 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
               {t("hero.badge")}
               <Flame className="w-3.5 h-3.5 text-brand-lime fill-brand-lime ml-0.5" />
             </span>
+          </motion.div>
+
+          {/* Mobile-only: Maskot di bawah badge, sebelum headline */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="block lg:hidden relative w-full max-w-[300px] sm:max-w-[380px] aspect-square mx-auto my-2"
+          >
+            <div className="absolute inset-4 rounded-full bg-gradient-to-br from-brand-blue/15 via-brand-lime/10 to-transparent blur-2xl pointer-events-none" />
+            <motion.img
+              src="/images/character-waving.png"
+              alt="Proud Tech 3D Mascot"
+              className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute top-6 right-2 bg-brand-lime text-brand-dark font-display font-black text-[9px] tracking-wider px-3 py-1.5 rounded-full shadow-lg border border-brand-dark/10"
+            >
+              👋 {language === "id" ? "HALO!" : "HELLO!"}
+            </motion.div>
           </motion.div>
 
           {/* Big Bold Uppercase Title */}
@@ -94,7 +118,7 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
             {t("hero.desc")}
           </motion.p>
 
-          {/* CTA Button Layout (exactly like reference design) */}
+          {/* CTA Button Layout */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -123,12 +147,12 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
           </motion.div>
         </div>
 
-        {/* Right: 3D Character Mascot */}
+        {/* Right: 3D Character Mascot — Desktop Only */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85, x: 40 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex-shrink-0 relative w-full max-w-[280px] sm:max-w-[420px] lg:max-w-[540px] aspect-square"
+          className="hidden lg:flex flex-shrink-0 relative w-full max-w-[540px] aspect-square"
         >
           {/* Glowing backdrop circle behind character */}
           <div className="absolute inset-4 rounded-full bg-gradient-to-br from-brand-blue/15 via-brand-lime/10 to-transparent blur-2xl pointer-events-none" />

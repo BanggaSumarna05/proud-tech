@@ -82,7 +82,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
     },
     CUSTOM: {
       name: language === "id" ? "Paket Custom" : "Custom Package",
-      price: language === "id" ? "Disesuaikan " : "Customized",
+      price: language === "id" ? "Disesuaikan" : "Customized",
       target: language === "id" ? "Cocok untuk: Rental, Sekolah, Properti, Perusahaan." : "Built for: rentals, schools, property, enterprises.",
       duration: language === "id" ? "Pengerjaan: Sesuai Scope Project" : "Delivery: Based on Project Scope",
       features: language === "id"

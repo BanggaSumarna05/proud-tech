@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ClientLogos from "./components/ClientLogos";
@@ -15,17 +15,44 @@ import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import PageLoader from "./components/PageLoader";
 import { useLanguage } from "./context/LanguageContext";
-import { MessageCircle, X, Send, Sparkles } from "lucide-react";
-import { AnimatePresence } from "motion/react";
+import { MessageCircle, X, Send, ArrowUp } from "lucide-react";
+import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
+
+// ── Helper: Smooth section reveal on scroll ──
+function SectionReveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function App() {
+
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [selectedPackForCTA, setSelectedPackForCTA] = useState<string | null>(null);
   const [isWhatsappBubbleOpen, setIsWhatsappBubbleOpen] = useState(false);
   const [customWaMessage, setCustomWaMessage] = useState("");
   const [selectedCaseStudyProject, setSelectedCaseStudyProject] = useState<string | null>(null);
   const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const { language } = useLanguage();
+
+  // Scroll progress bar
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+
+  // Show scroll-to-top button after 400px
+  useEffect(() => {
+    const handleScroll = () => setShowScrollTop(window.scrollY > 400);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -79,6 +106,12 @@ export default function App() {
         )}
       </AnimatePresence>
 
+      {/* ── Scroll Progress Bar ── */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[3px] bg-brand-lime z-[9999] origin-left"
+        style={{ scaleX }}
+      />
+
       <div className={`relative min-h-screen bg-brand-bg text-brand-dark selection:bg-brand-blue selection:text-white ${isInitialLoading ? "h-screen overflow-hidden" : ""}`}>
       
       {/* Navbar Container */}
@@ -96,27 +129,31 @@ export default function App() {
         />
 
         {/* 1.5. Brand Client Logos Marquee */}
-        <ClientLogos />
+        <SectionReveal delay={0}><ClientLogos /></SectionReveal>
 
         {/* 2. Horizontal Tech Mockup Showcase */}
-        <Showcase />
+        <SectionReveal delay={0.05}><Showcase /></SectionReveal>
 
         {/* 3. Our Corporate Services */}
-        <Services 
-          onOpenConsultation={handleOpenConsultationDirectly} 
-        />
+        <SectionReveal delay={0.05}>
+          <Services 
+            onOpenConsultation={handleOpenConsultationDirectly} 
+          />
+        </SectionReveal>
 
         {/* 4. Why Clients Trust Proud Tech */}
-        <WhyChooseUs />
+        <SectionReveal delay={0.05}><WhyChooseUs /></SectionReveal>
 
         {/* 5. Custom Live Portfolios with Interactive Case Studies */}
-        <Portfolio 
-          onSelectProject={handleSelectProjectEnquiry} 
-          onViewCaseStudy={(projectName) => {
-            setSelectedCaseStudyProject(projectName);
-            setIsCaseStudyOpen(true);
-          }}
-        />
+        <SectionReveal delay={0.05}>
+          <Portfolio 
+            onSelectProject={handleSelectProjectEnquiry} 
+            onViewCaseStudy={(projectName) => {
+              setSelectedCaseStudyProject(projectName);
+              setIsCaseStudyOpen(true);
+            }}
+          />
+        </SectionReveal>
 
         {/* Case Study Detailed Modal Overlay */}
         <CaseStudyModal 
@@ -127,26 +164,45 @@ export default function App() {
         />
 
         {/* 6. Dynamic Roadmap Process */}
-        <Process />
+        <SectionReveal delay={0.05}><Process /></SectionReveal>
 
         {/* 7. Centered Big Brand Slogan */}
-        <Motivation />
+        <SectionReveal delay={0.05}><Motivation /></SectionReveal>
 
         {/* Client Testimonial Carousel */}
-        <Testimonials />
+        <SectionReveal delay={0.05}><Testimonials /></SectionReveal>
 
         {/* FAQ - Frequently Asked Questions Accordion Block */}
-        <FAQ />
+        <SectionReveal delay={0.05}><FAQ /></SectionReveal>
 
         {/* 8. Combined Pricing & Consultation */}
-        <CTA 
-          initialSelectedPackage={selectedPackForCTA}
-          onOpenConsultation={handleOpenConsultationDirectly} 
-        />
+        <SectionReveal delay={0.05}>
+          <CTA 
+            initialSelectedPackage={selectedPackForCTA}
+            onOpenConsultation={handleOpenConsultationDirectly} 
+          />
+        </SectionReveal>
       </main>
 
-      {/* 9. Footing */}
+      {/* 9. Footer */}
       <Footer onScrollToSection={scrollToSection} />
+
+      {/* ── Scroll-to-Top Button ── */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 20 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="fixed bottom-24 right-6 z-50 w-11 h-11 rounded-full bg-brand-blue text-white flex items-center justify-center shadow-lg hover:bg-brand-dark hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer border border-white/10"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp className="w-4 h-4" />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       {/* FLOATING WHATSAPP CHAT POP-PANEL (Premium Extra recommended in brand kit) */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
