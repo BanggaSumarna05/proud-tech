@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowUpRight, Monitor, Smartphone, Palette, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import TiltCard from "./effects/TiltCard";
 
 interface ServicesProps {
   onOpenConsultation: () => void;
@@ -136,15 +137,16 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className={`relative rounded-[28px] p-6 lg:p-8 flex flex-col justify-between transition-all duration-300 shadow-md ${
-                  service.highlight
-                    ? "bg-brand-blue text-white border-2 border-brand-lime"
-                    : "bg-white text-brand-dark border border-brand-border/80"
-                }`}
+                className={`relative h-full flex`}
               >
+               <TiltCard intensity={5} className={`w-full relative rounded-[28px] p-6 lg:p-8 flex flex-col justify-between transition-all duration-300 shadow-md ${
+                  service.highlight
+                    ? "bg-brand-blue text-white border-2 border-brand-accent"
+                    : "bg-white text-brand-dark border border-brand-border/80"
+                }`}>
                 {/* Accent Background Spark for Highlighted Card */}
                 {service.highlight && (
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-brand-lime/10 rounded-full blur-3xl pointer-events-none" />
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/10 rounded-full blur-3xl pointer-events-none" />
                 )}
 
                 <div>
@@ -153,7 +155,7 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
                     <div
                       className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-inner ${
                         service.highlight
-                          ? "bg-brand-lime text-brand-blue"
+                          ? "bg-brand-accent text-brand-blue"
                           : "bg-brand-blue/5 text-brand-blue"
                       }`}
                     >
@@ -165,7 +167,7 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
                       onClick={onOpenConsultation}
                       className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 cursor-pointer ${
                         service.highlight
-                          ? "bg-brand-lime text-brand-dark hover:bg-white hover:text-brand-blue border-transparent"
+                          ? "bg-brand-accent text-brand-dark hover:bg-white hover:text-brand-blue border-transparent"
                           : "bg-transparent border-brand-border/80 text-brand-dark hover:bg-brand-blue hover:text-white"
                       }`}
                     >
@@ -181,7 +183,7 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
                   {/* Benefit Badge - Explains why this is important */}
                   <div className={`py-2 px-3.5 rounded-xl text-[10px] font-display font-extrabold tracking-wide mb-4 ${
                     service.highlight 
-                      ? "bg-white/10 text-brand-lime border border-white/5" 
+                      ? "bg-white/10 text-brand-accent border border-white/5" 
                       : "bg-brand-blue/5 text-brand-blue border border-brand-blue/10"
                   }`}>
                     {service.benefit}
@@ -203,7 +205,7 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
                       <div key={fIdx} className="flex items-center gap-2.5">
                         <CheckCircle2
                           className={`w-4 h-4 shrink-0 ${
-                            service.highlight ? "text-brand-lime" : "text-brand-blue"
+                            service.highlight ? "text-brand-accent" : "text-brand-blue"
                           }`}
                         />
                         <span
@@ -223,12 +225,13 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
                   onClick={onOpenConsultation}
                   className={`w-full text-center py-4 rounded-full font-display font-black text-xs tracking-wider uppercase transition-all duration-300 cursor-pointer ${
                     service.highlight
-                      ? "bg-brand-lime text-brand-blue hover:bg-white hover:text-brand-blue border-transparent shadow-md hover:scale-102"
+                      ? "bg-brand-accent text-brand-blue hover:bg-white hover:text-brand-blue border-transparent shadow-md hover:scale-102"
                       : "bg-[#121215] text-white hover:bg-brand-blue border-transparent shadow-md hover:scale-102"
                   }`}
                 >
                   {language === "id" ? "Mulai Konsultasi Gratis →" : "Start Free Consultation →"}
                 </button>
+               </TiltCard>
               </motion.div>
             );
           })}

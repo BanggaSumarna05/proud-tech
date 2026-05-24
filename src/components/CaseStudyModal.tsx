@@ -217,7 +217,7 @@ export default function CaseStudyModal({ isOpen, onClose, projectName, onConsult
               
               <div className="relative flex justify-between items-start gap-4">
                 <div>
-                  <span className="text-[9px] font-mono tracking-widest bg-white/20 text-brand-lime font-black py-1 px-3 rounded-full uppercase">
+                  <span className="text-[9px] font-mono tracking-widest bg-white/20 text-brand-accent font-black py-1 px-3 rounded-full uppercase">
                     ⚡ STUDI KASUS PROYEK / CASE STUDY
                   </span>
                   <h3 className="font-display font-black text-2xl md:text-3xl mt-3 tracking-tight uppercase leading-none">
@@ -265,7 +265,7 @@ export default function CaseStudyModal({ isOpen, onClose, projectName, onConsult
               </div>
 
               {/* ROI Business Outcome Impact */}
-              <div className="p-5 rounded-2xl bg-brand-lime/10 border border-brand-lime/30 space-y-2">
+              <div className="p-5 rounded-2xl bg-brand-accent/10 border border-brand-accent/30 space-y-2">
                 <h4 className="font-display font-bold text-xxs tracking-wider text-brand-dark uppercase flex items-center gap-1.5 font-mono">
                   <TrendingUp className="w-4 h-4 text-brand-blue shrink-0" />
                   {language === "id" ? "Hasil & Dampak Bisnis (Business ROI)" : "Business ROI & Outcome"}
@@ -322,7 +322,7 @@ export default function CaseStudyModal({ isOpen, onClose, projectName, onConsult
                 className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-brand-blue hover:bg-brand-dark text-white font-display font-bold text-xxs tracking-wider uppercase px-6 py-3.5 rounded-full transition-all duration-300 cursor-pointer shadow-md"
               >
                 {language === "id" ? "Konsultasikan Project Seperti Ini" : "Enquire Similar Project"}
-                <span className="w-4.5 h-4.5 rounded-full bg-brand-lime text-brand-blue flex items-center justify-center group-hover:bg-white group-hover:text-brand-dark transition-colors shrink-0">
+                <span className="w-4.5 h-4.5 rounded-full bg-brand-accent text-brand-blue flex items-center justify-center group-hover:bg-white group-hover:text-brand-dark transition-colors shrink-0">
                   <ExternalLink className="w-2.5 h-2.5" />
                 </span>
               </button>

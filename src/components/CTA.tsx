@@ -166,7 +166,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
       
       {/* Decorative background vectors */}
       <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-brand-blue/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-[250px] h-[250px] bg-brand-lime/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-[250px] h-[250px] bg-brand-accent/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         
@@ -237,7 +237,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
                   </div>
                   
                   {/* Huge Styled Price Badge */}
-                  <div className="bg-brand-lime/35 border border-brand-lime/80 px-6 py-3 rounded-2xl text-left sm:text-right w-full sm:w-auto shrink-0">
+                  <div className="bg-brand-accent/35 border border-brand-accent/80 px-6 py-3 rounded-2xl text-left sm:text-right w-full sm:w-auto shrink-0">
                     <span className="font-sans font-medium text-[9px] text-[#1f1f1f]/60 uppercase tracking-widest block font-bold">
                       {language === "id" ? "INVESTASI MULAI" : "INVESTMENT STARTS FROM"}
                     </span>
@@ -253,7 +253,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
                       {packages[selectedTier].duration.replace('⏱️ ', '')}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2 bg-brand-lime/10 border border-brand-lime/25 px-3.5 py-2 rounded-xl">
+                  <div className="flex items-center gap-2 bg-brand-accent/10 border border-brand-accent/25 px-3.5 py-2 rounded-xl">
                     <span className="text-sm">🛡️</span>
                     <span className="text-[11px] font-display font-extrabold text-brand-blue">
                       {language === "id" ? "Garansi Revisi Sepuasnya" : "Unlimited Revisions"}
@@ -329,7 +329,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
               <div className="flex items-start gap-4 mb-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-4">
-                    <Star className="w-4 h-4 text-brand-lime fill-brand-lime animate-pulse" />
+                    <Star className="w-4 h-4 text-brand-accent fill-brand-accent animate-pulse" />
                     <span className="font-display font-bold text-xxs tracking-widest text-[#D9FF3F] uppercase">
                       {language === "id" ? "KONSULTASI GRATIS — TANPA BIAYA" : "FREE CONSULTATION — ZERO COST"}
                     </span>
@@ -373,7 +373,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
                     placeholder={language === "id" ? "Budi Santoso" : "Johnathan Doe"}
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
-                    className="w-full bg-[#1c1d24] border border-white/10 rounded-2xl py-3.5 px-4 text-xs focus:border-brand-lime outline-none text-white transition-all/300 font-medium"
+                    className="w-full bg-[#1c1d24] border border-white/10 rounded-2xl py-3.5 px-4 text-xs focus:border-brand-accent outline-none text-white transition-all/300 font-medium"
                   />
                 </div>
 
@@ -387,27 +387,27 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
                     placeholder={language === "id" ? "Kuliner Sambal Mandiri" : "Modern Retail Group"}
                     value={userBusiness}
                     onChange={(e) => setUserBusiness(e.target.value)}
-                    className="w-full bg-[#1c1d24] border border-white/10 rounded-2xl py-3.5 px-4 text-xs focus:border-brand-lime outline-none text-white transition-all/300 font-medium"
+                    className="w-full bg-[#1c1d24] border border-white/10 rounded-2xl py-3.5 px-4 text-xs focus:border-brand-accent outline-none text-white transition-all/300 font-medium"
                   />
                 </div>
 
                 <button
                   id="direct-consultation-submit"
                   type="submit"
-                  className="w-full group mt-2 flex items-center justify-between bg-brand-lime text-brand-dark font-display font-bold text-xs tracking-wider uppercase px-5 py-4 rounded-full border border-brand-dark/10 shadow-md transition-all duration-300 hover:bg-brand-blue hover:text-white cursor-pointer hover:scale-102 active:scale-98"
+                  className="w-full group mt-2 flex items-center justify-between bg-brand-accent text-brand-dark font-display font-bold text-xs tracking-wider uppercase px-5 py-4 rounded-full border border-brand-dark/10 shadow-md transition-all duration-300 hover:bg-brand-blue hover:text-white cursor-pointer hover:scale-102 active:scale-98"
                 >
                   <span className="flex items-center gap-2">
                     <MessageSquare className="w-4 h-4 shrink-0" />
                     {language === "id" ? "KONSULTASI VIA WHATSAPP" : "TELEPORT VIA WHATSAPP"}
                   </span>
-                  <span className="w-5 h-5 rounded-full bg-brand-dark text-brand-lime group-hover:bg-brand-lime group-hover:text-brand-blue flex items-center justify-center transition-colors">
+                  <span className="w-5 h-5 rounded-full bg-brand-dark text-brand-accent group-hover:bg-brand-accent group-hover:text-brand-blue flex items-center justify-center transition-colors">
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </button>
                 
                 {/* Frictionless Trust Badges */}
                 <div className="mt-3.5 flex flex-wrap items-center justify-center gap-2 text-[10px] text-white/50 font-mono">
-                  <span className="flex items-center gap-1 text-brand-lime font-bold">
+                  <span className="flex items-center gap-1 text-brand-accent font-bold">
                     ⚡ {language === "id" ? "Respon Cepat < 15 Menit" : "Fast Response < 15 Mins"}
                   </span>
                   <span>•</span>
@@ -419,10 +419,10 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
             {/* Direct Line Badge */}
             <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-white/40 text-xxs font-mono">
               <span className="flex items-center gap-1">
-                <Phone className="w-3 h-3 text-brand-lime" aria-hidden="true" />
+                <Phone className="w-3 h-3 text-brand-accent" aria-hidden="true" />
                 {language === "id" ? "Dukungan Telepon Aktif" : "Direct Hotline Available"}
               </span>
-              <span className="text-brand-lime">+62 858-6198-5540</span>
+              <span className="text-brand-accent">+62 858-6198-5540</span>
             </div>
 
           </div>

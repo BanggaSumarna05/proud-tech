@@ -72,7 +72,7 @@ export default function Process() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 relative">
           
           {/* Horizontal Line backdrop for Large Screens */}
-          <div className="hidden lg:block absolute top-[44px] left-12 right-12 h-[2px] bg-gradient-to-r from-brand-blue via-brand-lime to-brand-blue opacity-30 z-0" />
+          <div className="hidden lg:block absolute top-[44px] left-12 right-12 h-[2px] bg-gradient-to-r from-brand-blue via-brand-accent to-brand-blue opacity-30 z-0" />
 
           {steps.map((step, idx) => {
             const IconComp = step.icon;

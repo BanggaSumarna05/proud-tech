@@ -70,7 +70,7 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-20 md:py-28 px-6 relative bg-brand-bg border-t border-brand-border/40 overflow-hidden">
       {/* Decorative Blur Orbs */}
-      <div className="absolute top-1/4 right-0 w-[250px] md:w-[400px] h-[250px] md:h-[400px] rounded-full bg-brand-lime/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[250px] md:w-[400px] h-[250px] md:h-[400px] rounded-full bg-brand-accent/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-[200px] md:w-[350px] h-[200px] md:h-[350px] rounded-full bg-brand-blue/5 blur-[120px] pointer-events-none animate-pulse-slow" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -106,7 +106,7 @@ export default function Testimonials() {
               <div>
                 {/* Top row: Verified badge + Stars */}
                 <div className="flex justify-between items-center mb-5">
-                  <div className="flex items-center gap-1.5 bg-brand-lime/10 border border-brand-lime/20 px-3 py-1 rounded-full text-brand-blue font-display font-extrabold text-[9px] tracking-wider uppercase">
+                  <div className="flex items-center gap-1.5 bg-brand-accent/10 border border-brand-accent/20 px-3 py-1 rounded-full text-brand-blue font-display font-extrabold text-[9px] tracking-wider uppercase">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-blue" />
                     {language === "id" ? "Klien Terverifikasi" : "Verified Client"}
                   </div>
@@ -114,7 +114,7 @@ export default function Testimonials() {
                   {/* Stars Rating — enlarged */}
                   <div className="flex items-center gap-0.5">
                     {[...Array(test.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-brand-lime text-brand-lime" />
+                      <Star key={i} className="w-4 h-4 fill-brand-accent text-brand-accent" />
                     ))}
                   </div>
                 </div>
@@ -132,7 +132,7 @@ export default function Testimonials() {
                   src={test.avatar} 
                   alt={test.name}
                   loading="lazy"
-                  className="w-14 h-14 rounded-full object-cover border-2 border-brand-lime shadow-sm shrink-0"
+                  className="w-14 h-14 rounded-full object-cover border-2 border-brand-accent shadow-sm shrink-0"
                 />
                 <div className="text-left flex-1 min-w-0">
                   <h4 className="font-display font-black text-sm text-brand-dark leading-none mb-1">

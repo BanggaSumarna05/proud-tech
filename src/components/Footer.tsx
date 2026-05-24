@@ -33,7 +33,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
 
       {/* Radiant Glowing Ambient lights */}
       <div className="absolute top-0 left-10 w-72 h-72 rounded-full bg-brand-blue/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-10 w-60 h-60 rounded-full bg-brand-lime/5 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-10 w-60 h-60 rounded-full bg-brand-accent/5 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -73,7 +73,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
                 <span>proudetech@gmail.com</span>
                 <div className="w-6 h-6 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-brand-blue/30 transition-colors shrink-0">
                   {copied ? (
-                    <Check className="w-3.5 h-3.5 text-brand-lime" />
+                    <Check className="w-3.5 h-3.5 text-brand-accent" />
                   ) : (
                     <Copy className="w-3.5 h-3.5 text-white/70 group-hover:text-white" />
                   )}
@@ -109,25 +109,25 @@ export default function Footer({ onScrollToSection }: FooterProps) {
               {language === "id" ? "Halaman Langsung" : "Quick Index"}
             </h4>
             <div className="flex flex-col gap-3 font-sans text-xs">
-              <button onClick={() => onScrollToSection("home")} className="text-white/60 hover:text-brand-lime hover:underline text-left cursor-pointer transition-colors font-medium">
+              <button onClick={() => onScrollToSection("home")} className="text-white/60 hover:text-brand-accent hover:underline text-left cursor-pointer transition-colors font-medium">
                 {language === "id" ? "Beranda" : "Home"}
               </button>
-              <button onClick={() => onScrollToSection("services")} className="text-white/60 hover:text-brand-lime hover:underline text-left cursor-pointer transition-colors font-medium">
+              <button onClick={() => onScrollToSection("services")} className="text-white/60 hover:text-brand-accent hover:underline text-left cursor-pointer transition-colors font-medium">
                 {language === "id" ? "Layanan Kami" : "Our Services"}
               </button>
-              <button onClick={() => onScrollToSection("about")} className="text-white/60 hover:text-brand-lime hover:underline text-left cursor-pointer transition-colors font-medium">
+              <button onClick={() => onScrollToSection("about")} className="text-white/60 hover:text-brand-accent hover:underline text-left cursor-pointer transition-colors font-medium">
                 {language === "id" ? "Mengapa Memilih Kami" : "Why Choose Us"}
               </button>
-              <button onClick={() => onScrollToSection("portfolio")} className="text-white/60 hover:text-brand-lime hover:underline text-left cursor-pointer transition-colors font-medium">
+              <button onClick={() => onScrollToSection("portfolio")} className="text-white/60 hover:text-brand-accent hover:underline text-left cursor-pointer transition-colors font-medium">
                 {language === "id" ? "Portofolio Proyek" : "Featured Projects"}
               </button>
-              <button onClick={() => onScrollToSection("testimonials")} className="text-white/60 hover:text-brand-lime hover:underline text-left cursor-pointer transition-colors font-medium">
+              <button onClick={() => onScrollToSection("testimonials")} className="text-white/60 hover:text-brand-accent hover:underline text-left cursor-pointer transition-colors font-medium">
                 {language === "id" ? "Testimoni Klien" : "Client Testimonials"}
               </button>
-              <button onClick={() => onScrollToSection("faq")} className="text-white/60 hover:text-brand-lime hover:underline text-left cursor-pointer transition-colors font-medium">
+              <button onClick={() => onScrollToSection("faq")} className="text-white/60 hover:text-brand-accent hover:underline text-left cursor-pointer transition-colors font-medium">
                 {language === "id" ? "Tanya Jawab (FAQ)" : "Questions & Answers (FAQ)"}
               </button>
-              <button onClick={() => onScrollToSection("pricing")} className="text-white/60 hover:text-brand-lime hover:underline text-left cursor-pointer transition-colors font-medium">
+              <button onClick={() => onScrollToSection("pricing")} className="text-white/60 hover:text-brand-accent hover:underline text-left cursor-pointer transition-colors font-medium">
                 {language === "id" ? "Paket Investasi & Harga" : "Investment Plans & Rates"}
               </button>
             </div>
@@ -143,7 +143,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
               Jawa Barat, Indonesia 46396
             </p>
             <div className="pt-2 h-px bg-white/10" />
-            <div className="space-y-1 text-xxs font-mono uppercase tracking-wider text-brand-lime font-bold">
+            <div className="space-y-1 text-xxs font-mono uppercase tracking-wider text-brand-accent font-bold">
               <div>⏰ {language === "id" ? "RESPON CEPAT: 08:00 - 21:00 WIB" : "FAST RESPONSE: 08:00 - 21:00 UTC+7"}</div>
               <div>⚡ {language === "id" ? "KREATIF SETIAP HARI" : "PASSIONATE EVERY DAY"}</div>
             </div>
@@ -162,9 +162,9 @@ export default function Footer({ onScrollToSection }: FooterProps) {
           
           <div className="flex items-center gap-1.5 order-1 sm:order-2 font-semibold text-white/70">
             <span>{language === "id" ? "Dibuat dengan React & Tailwind oleh" : "Crafted with React & Tailwind by"}</span>
-            <span className="text-brand-lime font-bold">Proud Tech</span>
+            <span className="text-brand-accent font-bold">Proud Tech</span>
             <div className="w-1.5 h-1.5 rounded-full bg-brand-blue" />
-            <span className="text-xxs font-mono text-brand-lime">2026</span>
+            <span className="text-xxs font-mono text-brand-accent">2026</span>
           </div>
 
           {/* Top Anchor Button */}

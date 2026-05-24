@@ -23,7 +23,7 @@ export default function WhyChooseUs() {
         ? "Rata-rata Google PageSpeed Score kami di atas 92 — dengan load time halaman di bawah 1.5 detik untuk pengalaman pengguna kelas atas."
         : "Our average Google PageSpeed score exceeds 92 — with page load times under 1.5 seconds for a premium user experience.",
       icon: Zap,
-      color: "from-brand-lime/15 to-transparent",
+      color: "from-brand-accent/15 to-transparent",
     },
     {
       title: language === "id" ? "Optimasi SEO Google" : "Google SEO Optimization",
@@ -39,7 +39,7 @@ export default function WhyChooseUs() {
         ? "Desain yang langsung membangun kepercayaan. Lebih dari 85 klien membuktikan bahwa tampilan profesional meningkatkan konversi hingga 2-3x lipat."
         : "Design that instantly builds trust. Over 85 clients confirm that professional visuals increase conversion rates by 2-3x.",
       icon: Sparkles,
-      color: "from-brand-lime/15 to-transparent",
+      color: "from-brand-accent/15 to-transparent",
     },
     {
       title: language === "id" ? "Dukungan Responsif" : "Responsive Support",
@@ -55,7 +55,7 @@ export default function WhyChooseUs() {
         ? "Setiap fitur kami bangun dengan tujuan nyata: meningkatkan penjualan dan kepercayaan. 2+ tahun pengalaman membangun solusi digital untuk UMKM Indonesia."
         : "Every feature built with one real goal: increasing sales and trust. 2+ years building digital solutions for Indonesian small-to-medium businesses.",
       icon: TrendingUp,
-      color: "from-brand-lime/15 to-transparent",
+      color: "from-brand-accent/15 to-transparent",
     },
   ];
 
@@ -64,13 +64,13 @@ export default function WhyChooseUs() {
       
       {/* Absolute Decorative Circles */}
       <div className="absolute top-0 left-0 w-80 h-80 rounded-full bg-brand-blue/15 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-brand-lime/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-brand-accent/10 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Title */}
         <div className="text-center max-w-2xl mx-auto mb-16 relative">
-          <span className="font-display font-semibold text-xs tracking-wider text-brand-lime bg-brand-lime/10 border border-brand-lime/20 px-4 py-1.5 rounded-full">
+          <span className="font-display font-semibold text-xs tracking-wider text-brand-accent bg-brand-accent/10 border border-brand-accent/20 px-4 py-1.5 rounded-full">
             {language === "id" ? "NILAI UTAMA KAMI" : "OUR CORE VALUES"}
           </span>
           <h2 className="font-display font-black text-4xl md:text-5xl text-white mt-6 tracking-tight uppercase">
@@ -112,7 +112,7 @@ export default function WhyChooseUs() {
               >
                 <div>
                   {/* Decorative Icon Circle */}
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 text-brand-lime border border-white/10 flex items-center justify-center mb-6 group-hover:bg-brand-blue group-hover:text-white group-hover:border-transparent transition-all duration-300">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 text-brand-accent border border-white/10 flex items-center justify-center mb-6 group-hover:bg-brand-blue group-hover:text-white group-hover:border-transparent transition-all duration-300">
                     <IconComponent className="w-5.5 h-5.5" />
                   </div>
 
@@ -134,7 +134,7 @@ export default function WhyChooseUs() {
         {/* Small Trust Seal Banner at Bottom */}
         <div className="mt-16 bg-[#1a1b21] border border-white/5 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-brand-lime/10 flex items-center justify-center text-brand-lime shrink-0">
+            <div className="w-10 h-10 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent shrink-0">
               <Cpu className="w-5 h-5" />
             </div>
             <div>
@@ -150,7 +150,7 @@ export default function WhyChooseUs() {
             </div>
           </div>
           <div className="flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-start gap-1.5 bg-white/5 px-4 py-2.5 rounded-2xl sm:rounded-full border border-white/5 text-center">
-            <Heart className="w-3.5 h-3.5 text-brand-lime fill-brand-lime animate-pulse shrink-0" />
+            <Heart className="w-3.5 h-3.5 text-brand-accent fill-brand-accent animate-pulse shrink-0" />
             <span className="text-[10px] font-display font-bold text-white/80 uppercase">
               {language === "id" ? "Bangga Kami Mendukung UMKM" : "PROUDLY SUPPORTING SMALL BUSINESSES"}
             </span>

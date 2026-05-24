@@ -5,6 +5,9 @@ import PageLoader from "./components/PageLoader";
 import { useLanguage } from "./context/LanguageContext";
 import { MessageCircle, X, Send, ArrowUp } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
+import Lenis from "lenis";
+import CursorGlow from "./components/effects/CursorGlow";
+import NoiseOverlay from "./components/effects/NoiseOverlay";
 
 // Lazy loaded components (Below the fold)
 const ClientLogos = React.lazy(() => import("./components/ClientLogos"));
@@ -36,7 +39,7 @@ function SectionReveal({ children, delay = 0 }: { children: React.ReactNode; del
 
 export default function App() {
 
-  const [isInitialLoading, setIsInitialLoading] = useState(true);
+  const [isInitialLoading, setIsInitialLoading] = useState(false);
   const [selectedPackForCTA, setSelectedPackForCTA] = useState<string | null>(null);
   const [isWhatsappBubbleOpen, setIsWhatsappBubbleOpen] = useState(false);
   const [customWaMessage, setCustomWaMessage] = useState("");
@@ -45,6 +48,30 @@ export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [loadBelowFold, setLoadBelowFold] = useState(false);
   const { language } = useLanguage();
+
+  // Initialize Lenis Smooth Scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
   // Defer loading heavy below-the-fold components
   useEffect(() => {
@@ -129,9 +156,12 @@ export default function App() {
         )}
       </AnimatePresence>
 
+      <NoiseOverlay />
+      <CursorGlow />
+
       {/* ── Scroll Progress Bar ── */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-brand-lime z-[9999] origin-left"
+        className="fixed top-0 left-0 right-0 h-[3px] bg-brand-accent z-[9999] origin-left"
         style={{ scaleX }}
       />
 
@@ -246,17 +276,17 @@ export default function App() {
             {/* Header portion */}
             <div className="bg-brand-blue text-white p-4.5 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-brand-lime hover:scale-105 transition-transform flex items-center justify-center text-brand-dark font-display font-black shadow-sm text-sm shrink-0">
+                <div className="w-9 h-9 rounded-full bg-brand-accent hover:scale-105 transition-transform flex items-center justify-center text-brand-dark font-display font-black shadow-sm text-sm shrink-0">
                   PT
                 </div>
                 <div>
                   <h4 className="font-display font-extrabold text-[12.5px] leading-tight font-display">Proud Tech Support</h4>
-                  <p className="text-[10px] text-brand-lime font-mono tracking-wider font-semibold">● ONLINE • PROUD TECH</p>
+                  <p className="text-[10px] text-brand-accent font-mono tracking-wider font-semibold">● ONLINE • PROUD TECH</p>
                 </div>
               </div>
               <button 
                 onClick={() => setIsWhatsappBubbleOpen(false)}
-                className="text-white hover:text-brand-lime transition-colors cursor-pointer"
+                className="text-white hover:text-brand-accent transition-colors cursor-pointer"
                 aria-label="Close Whatsapp Chat Support Pop-up"
               >
                 <X className="w-4.5 h-4.5" />
@@ -292,7 +322,7 @@ export default function App() {
               />
               <button 
                 type="submit"
-                className="w-8 h-8 rounded-full bg-brand-lime hover:bg-brand-blue text-brand-dark hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-sm"
+                className="w-8 h-8 rounded-full bg-brand-accent hover:bg-brand-blue text-brand-dark hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-sm"
                 aria-label="Send custom Whatsapp query"
               >
                 <Send className="w-3.5 h-3.5" />
@@ -305,7 +335,7 @@ export default function App() {
         <button
           id="whatsapp-bubble-trigger"
           onClick={() => setIsWhatsappBubbleOpen(!isWhatsappBubbleOpen)}
-          className="group w-14 h-14 rounded-full bg-brand-lime hover:bg-brand-blue hover:text-white text-brand-dark flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 active:scale-90 relative cursor-pointer border border-brand-dark/10"
+          className="group w-14 h-14 rounded-full bg-brand-accent hover:bg-brand-blue hover:text-white text-brand-dark flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 active:scale-90 relative cursor-pointer border border-brand-dark/10"
           aria-label="Open chat panel"
         >
           {isWhatsappBubbleOpen ? (

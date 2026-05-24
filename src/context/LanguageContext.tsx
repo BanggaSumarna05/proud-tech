@@ -13,7 +13,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Navbar
     "nav.home": "BERANDA",
     "nav.services": "LAYANAN",
-    "nav.about": "TENTANG KAMI",
+    "nav.about": "TENTANG",
     "nav.portfolio": "PORTOFOLIO",
     "nav.navigation": "NAVIGASI",
     "nav.free_consultation": "KONSULTASI GRATIS",
@@ -196,7 +196,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Navbar
     "nav.home": "HOME",
     "nav.services": "SERVICES",
-    "nav.about": "ABOUT US",
+    "nav.about": "ABOUT",
     "nav.portfolio": "PORTFOLIO",
     "nav.navigation": "NAVIGATION",
     "nav.free_consultation": "FREE CONSULTATION",

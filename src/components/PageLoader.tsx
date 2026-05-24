@@ -88,7 +88,7 @@ export default function PageLoader({ onComplete }: PageLoaderProps) {
     >
       {/* Premium Background Elements */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-brand-blue/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-brand-lime/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-brand-accent/5 blur-[120px] pointer-events-none" />
 
       {/* Elegant Shimmering Skeleton Header */}
       <header className="w-full max-w-7xl mx-auto px-6 py-6 border-b border-brand-border/40 flex items-center justify-between relative z-10">
@@ -186,7 +186,7 @@ export default function PageLoader({ onComplete }: PageLoaderProps) {
 
               <div className="flex justify-between items-center border-t border-brand-border/40 pt-4 mt-auto">
                 <div className="h-3.5 w-16 bg-brand-dark/8 rounded-full animate-pulse" />
-                <div className="h-5 w-12 bg-brand-lime/20 rounded-lg animate-pulse" />
+                <div className="h-5 w-12 bg-brand-accent/20 rounded-lg animate-pulse" />
               </div>
             </div>
           ))}
@@ -201,7 +201,7 @@ export default function PageLoader({ onComplete }: PageLoaderProps) {
           <span>{t("loader.creative")}</span>
         </div>
         <div className="flex items-center gap-2">
-          <Compass className="w-3.5 h-3.5 text-brand-lime" />
+          <Compass className="w-3.5 h-3.5 text-brand-accent" />
           <span>{t("loader.engine_status")}</span>
         </div>
       </footer>

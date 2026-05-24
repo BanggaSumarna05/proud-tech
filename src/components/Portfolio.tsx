@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, Monitor, Smartphone, Database, CheckCircle2, ChevronRight, Sliders } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import TiltCard from "./effects/TiltCard";
+import ParallaxImage from "./effects/ParallaxImage";
 
 interface PortfolioProps {
   onSelectProject: (projectName: string) => void;
@@ -160,18 +162,18 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
             >
               <div>
                 {/* Visual Card Graphic representation with gradient bg inside */}
-                <div 
-                  onClick={() => onViewCaseStudy(project.title)}
-                  className={`relative h-48 md:h-56 rounded-2xl bg-gradient-to-br ${project.color} overflow-hidden mb-6 flex items-center justify-center border border-black/10 shadow-inner group-hover:-translate-y-1 transition-transform duration-300 cursor-pointer group/image`}
-                >
-                  {project.image ? (
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover group-hover/image:scale-105 transition-transform duration-500"
-                    />
-                  ) : (
+                <TiltCard intensity={10}>
+                  <div 
+                    onClick={() => onViewCaseStudy(project.title)}
+                    className={`relative h-48 md:h-56 rounded-2xl bg-gradient-to-br ${project.color} overflow-hidden mb-6 flex items-center justify-center border border-black/10 shadow-inner group-hover:-translate-y-1 transition-transform duration-300 cursor-pointer group/image`}
+                  >
+                    {project.image ? (
+                      <ParallaxImage 
+                        src={project.image} 
+                        alt={project.title}
+                        className="group-hover/image:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
                     <>
                       {/* Grid Lines Overlay */}
                       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:12px_12px] opacity-40" />
@@ -180,12 +182,12 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
                       <div className="absolute w-28 h-28 rounded-full bg-white/5 blur-2xl animate-pulse-slow" />
                       
                       <div className="relative text-center p-6 text-white max-w-xs flex flex-col items-center group-hover/image:scale-95 transition-transform duration-300">
-                        <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-brand-lime border border-white/15 mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-brand-accent border border-white/15 mb-3 group-hover:scale-110 transition-transform duration-300">
                           {project.category === "WEB" ? <Monitor className="w-6 h-6" /> : 
                            project.category === "APP" ? <Smartphone className="w-6 h-6" /> : 
                            <Database className="w-6 h-6" />}
                         </div>
-                        <span className="text-[9px] font-mono tracking-widest text-brand-lime font-black uppercase">
+                        <span className="text-[9px] font-mono tracking-widest text-brand-accent font-black uppercase">
                           {project.client}
                         </span>
                         <h4 className="font-display font-black text-lg uppercase tracking-tight mt-1 line-clamp-1">
@@ -199,7 +201,7 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
                   <div className="absolute inset-0 bg-brand-dark/90 backdrop-blur-sm opacity-0 group-hover/image:opacity-100 flex flex-col justify-between p-6 transition-all duration-300 ease-out z-20">
                     {/* Top: Category and Client */}
                     <div className="flex justify-between items-center transform translate-y-3 group-hover/image:translate-y-0 transition-transform duration-300">
-                      <span className="text-[9px] font-mono tracking-widest text-brand-lime font-bold uppercase">
+                      <span className="text-[9px] font-mono tracking-widest text-brand-accent font-bold uppercase">
                         {project.category} Proyek
                       </span>
                       <span className="text-[9px] font-mono text-white/50">{project.client}</span>
@@ -215,24 +217,25 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
                       </p>
                       
                       {/* Metric Stat Badge */}
-                      <div className="mt-3 inline-flex items-center gap-1 bg-brand-lime/10 border border-brand-lime/20 px-2.5 py-1 rounded text-brand-lime text-[8.5px] font-mono font-bold uppercase">
+                      <div className="mt-3 inline-flex items-center gap-1 bg-brand-accent/10 border border-brand-accent/20 px-2.5 py-1 rounded text-brand-accent text-[8.5px] font-mono font-bold uppercase">
                         ⚡ {project.stats}
                       </div>
                     </div>
 
                     {/* Bottom: Action CTA Button */}
                     <div className="transform translate-y-3 group-hover/image:translate-y-0 transition-transform duration-300">
-                      <span className="w-full justify-center bg-brand-lime text-brand-dark font-display font-black text-[9px] tracking-widest uppercase py-2.5 rounded-full shadow-lg flex items-center gap-1.5 hover:bg-white hover:text-brand-blue transition-colors duration-300">
+                      <span className="w-full justify-center bg-brand-accent text-brand-dark font-display font-black text-[9px] tracking-widest uppercase py-2.5 rounded-full shadow-lg flex items-center gap-1.5 hover:bg-white hover:text-brand-blue transition-colors duration-300">
                         {language === "id" ? "Buka Studi Kasus ➔" : "Open Case Study ➔"}
                       </span>
                     </div>
                   </div>
 
                   {/* Absolute Corner Pill with speed stats */}
-                  <span className="absolute bottom-3 left-3 bg-[#121215]/80 backdrop-blur-md border border-white/15 text-[8.5px] font-mono text-brand-lime font-bold py-1 px-3 rounded-full animate-pulse">
+                  <span className="absolute bottom-3 left-3 bg-[#121215]/80 backdrop-blur-md border border-white/15 text-[8.5px] font-mono text-brand-accent font-bold py-1 px-3 rounded-full animate-pulse">
                     ⚡ {project.stats}
                   </span>
-                </div>
+                  </div>
+                </TiltCard>
 
                 {/* Info Area */}
                 <div className="flex justify-between items-start mb-3">
@@ -282,7 +285,7 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
                   <span className="font-display font-black text-[10px] uppercase tracking-wide">
                     {language === "id" ? "Konsultasi" : "Consult"}
                   </span>
-                  <span className="w-4 h-4 rounded-full bg-brand-lime text-brand-blue group-hover:bg-brand-lime group-hover:text-brand-blue flex items-center justify-center transition-colors">
+                  <span className="w-4 h-4 rounded-full bg-brand-accent text-brand-blue group-hover:bg-brand-accent group-hover:text-brand-blue flex items-center justify-center transition-colors">
                     <ArrowUpRight className="w-2.5 h-2.5" />
                   </span>
                 </button>

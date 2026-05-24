@@ -103,7 +103,7 @@ export default function FAQ() {
     <section id="faq" className="py-20 md:py-28 px-6 relative bg-white border-t border-brand-border/40">
       {/* Dynamic Background Accents */}
       <div className="absolute top-1/3 left-0 w-[200px] h-[200px] bg-brand-blue/5 rounded-full blur-[80px] pointer-events-none" />
-      <div className="absolute bottom-1/3 right-0 w-[200px] h-[200px] bg-brand-lime/10 rounded-full blur-[80px] pointer-events-none animate-pulse-slow" />
+      <div className="absolute bottom-1/3 right-0 w-[200px] h-[200px] bg-brand-accent/10 rounded-full blur-[80px] pointer-events-none animate-pulse-slow" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         
@@ -217,7 +217,7 @@ export default function FAQ() {
             className="group shrink-0 inline-flex items-center gap-2 bg-[#1c1d24] text-white hover:bg-brand-blue transition-all duration-300 font-display font-bold text-xxs tracking-wider uppercase px-4.5 py-3 rounded-full cursor-pointer hover:scale-102"
           >
             <span>{language === "id" ? "AJUKAN PERTANYAAN" : "ASK QUESTION NOW"}</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-brand-lime" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-brand-accent" />
           </button>
         </div>
 
