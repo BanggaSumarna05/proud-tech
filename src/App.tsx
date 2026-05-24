@@ -5,9 +5,6 @@ import PageLoader from "./components/PageLoader";
 import { useLanguage } from "./context/LanguageContext";
 import { MessageCircle, X, Send, ArrowUp } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
-import Lenis from "lenis";
-import CursorGlow from "./components/effects/CursorGlow";
-import NoiseOverlay from "./components/effects/NoiseOverlay";
 
 // Lazy loaded components (Below the fold)
 const ClientLogos = React.lazy(() => import("./components/ClientLogos"));
@@ -39,7 +36,7 @@ function SectionReveal({ children, delay = 0 }: { children: React.ReactNode; del
 
 export default function App() {
 
-  const [isInitialLoading, setIsInitialLoading] = useState(false);
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [selectedPackForCTA, setSelectedPackForCTA] = useState<string | null>(null);
   const [isWhatsappBubbleOpen, setIsWhatsappBubbleOpen] = useState(false);
   const [customWaMessage, setCustomWaMessage] = useState("");
@@ -48,30 +45,6 @@ export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [loadBelowFold, setLoadBelowFold] = useState(false);
   const { language } = useLanguage();
-
-  // Initialize Lenis Smooth Scrolling
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: "vertical",
-      gestureOrientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
 
   // Defer loading heavy below-the-fold components
   useEffect(() => {
@@ -155,9 +128,6 @@ export default function App() {
           <PageLoader onComplete={() => setIsInitialLoading(false)} />
         )}
       </AnimatePresence>
-
-      <NoiseOverlay />
-      <CursorGlow />
 
       {/* ── Scroll Progress Bar ── */}
       <motion.div
@@ -258,7 +228,7 @@ export default function App() {
             exit={{ opacity: 0, scale: 0.5, y: 20 }}
             transition={{ duration: 0.25 }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed bottom-24 right-6 z-50 w-11 h-11 rounded-full bg-brand-blue text-white flex items-center justify-center shadow-lg hover:bg-brand-dark hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer border border-white/10"
+            className="fixed bottom-20 sm:bottom-24 right-4 sm:right-6 z-40 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-brand-blue text-white flex items-center justify-center shadow-lg hover:bg-brand-dark hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer border border-white/10"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-4 h-4" />
@@ -267,11 +237,11 @@ export default function App() {
       </AnimatePresence>
 
       {/* FLOATING WHATSAPP CHAT POP-PANEL (Premium Extra recommended in brand kit) */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40 flex flex-col items-end">
         
         {/* Animated Pop-Up Window */}
         {isWhatsappBubbleOpen && (
-          <div className="bg-white border border-brand-border/80 w-[320px] rounded-2xl shadow-xl overflow-hidden mb-3 animate-float-1 relative">
+          <div className="bg-white border border-brand-border/80 w-[280px] sm:w-[320px] rounded-2xl shadow-xl overflow-hidden mb-3 animate-float-1 relative">
             
             {/* Header portion */}
             <div className="bg-brand-blue text-white p-4.5 flex items-center justify-between">
@@ -335,7 +305,7 @@ export default function App() {
         <button
           id="whatsapp-bubble-trigger"
           onClick={() => setIsWhatsappBubbleOpen(!isWhatsappBubbleOpen)}
-          className="group w-14 h-14 rounded-full bg-brand-accent hover:bg-brand-blue hover:text-white text-brand-dark flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 active:scale-90 relative cursor-pointer border border-brand-dark/10"
+          className="group w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-brand-accent hover:bg-brand-blue hover:text-white text-brand-dark flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 active:scale-90 relative cursor-pointer border border-brand-dark/10"
           aria-label="Open chat panel"
         >
           {isWhatsappBubbleOpen ? (

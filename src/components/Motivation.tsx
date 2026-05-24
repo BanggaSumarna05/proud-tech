@@ -1,21 +1,12 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { Star, Sparkles } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Motivation() {
   const { language } = useLanguage();
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "center center"]
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section ref={ref} id="motivation" className="py-24 md:py-32 px-6 relative overflow-hidden bg-[#121215] text-white rounded-[32px] mx-4 sm:mx-6 my-16 text-center">
+    <section id="motivation" className="py-20 md:py-32 px-4 sm:px-6 relative overflow-hidden bg-[#121215] text-white rounded-[24px] sm:rounded-[32px] mx-4 sm:mx-6 my-8 sm:my-16 text-center">
       
       {/* Decorative Glowing Gradients under typography */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[400px] rounded-full bg-brand-blue/15 blur-[120px] pointer-events-none" />
@@ -50,17 +41,17 @@ export default function Motivation() {
 
         {/* Huge Bold Uppercase typography matching design guidelines */}
         {language === "id" ? (
-          <motion.h2 style={{ scale, opacity }} className="font-display font-black text-3xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight sm:leading-[0.95] tracking-tighter text-white uppercase max-w-5xl mx-auto">
-            TERUS MEMBANGUN <br className="hidden sm:block" />
-            HINGGA <span className="text-brand-accent hover:text-brand-blue transition-colors duration-300 bg-brand-accent/10 px-3 sm:px-4.5 py-0.5 my-1 mx-1 sm:mx-1.5 rounded-xl sm:rounded-2xl border border-brand-accent/25 inline-block transform rotate-1">BRAND</span> ANDA <br className="hidden sm:block" />
-            MENJADI <span className="text-brand-blue bg-white px-3 sm:px-5 py-0.5 rounded-xl sm:rounded-2xl border border-white/20 inline-block transform -rotate-1">DIGITAL</span>.
-          </motion.h2>
+          <h2 className="font-display font-black text-4xl sm:text-6xl md:text-8xl leading-[0.95] tracking-tighter text-white uppercase max-w-4xl mx-auto">
+            TERUS MEMBANGUN <br />
+            HINGGA <span className="text-brand-accent hover:text-brand-blue transition-colors duration-300 bg-brand-accent/10 px-4.5 py-0.5 my-1 mx-1.5 rounded-2xl border border-brand-accent/25 inline-block transform rotate-1">BRAND</span> ANDA <br />
+            MENJADI <span className="text-brand-blue bg-white px-5 py-0.5 rounded-2xl border border-white/20 inline-block transform -rotate-1">DIGITAL</span>.
+          </h2>
         ) : (
-          <motion.h2 style={{ scale, opacity }} className="font-display font-black text-3xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight sm:leading-[0.95] tracking-tighter text-white uppercase max-w-5xl mx-auto">
-            CONTINUOUSLY BUILDING <br className="hidden sm:block" />
-            UNTIL YOUR <span className="text-brand-accent hover:text-brand-blue transition-colors duration-300 bg-brand-accent/10 px-3 sm:px-4.5 py-0.5 my-1 mx-1 sm:mx-1.5 rounded-xl sm:rounded-2xl border border-brand-accent/25 inline-block transform rotate-1">BRAND</span> EVOLVES <br className="hidden sm:block" />
-            INTO <span className="text-brand-blue bg-white px-3 sm:px-5 py-0.5 rounded-xl sm:rounded-2xl border border-white/20 inline-block transform -rotate-1">DIGITAL</span>.
-          </motion.h2>
+          <h2 className="font-display font-black text-4xl sm:text-6xl md:text-8xl leading-[0.95] tracking-tighter text-white uppercase max-w-4xl mx-auto">
+            CONTINUOUSLY BUILDING <br />
+            UNTIL YOUR <span className="text-brand-accent hover:text-brand-blue transition-colors duration-300 bg-brand-accent/10 px-4.5 py-0.5 my-1 mx-1.5 rounded-2xl border border-brand-accent/25 inline-block transform rotate-1">BRAND</span> EVOLVES <br />
+            INTO <span className="text-brand-blue bg-white px-5 py-0.5 rounded-2xl border border-white/20 inline-block transform -rotate-1">DIGITAL</span>.
+          </h2>
         )}
 
         {/* Thin minimalist helper stats */}

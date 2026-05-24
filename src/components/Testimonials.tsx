@@ -68,7 +68,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-20 md:py-28 px-6 relative bg-brand-bg border-t border-brand-border/40 overflow-hidden">
+    <section id="testimonials" className="py-16 md:py-28 px-4 sm:px-6 relative bg-brand-bg border-t border-brand-border/40 overflow-hidden">
       {/* Decorative Blur Orbs */}
       <div className="absolute top-1/4 right-0 w-[250px] md:w-[400px] h-[250px] md:h-[400px] rounded-full bg-brand-accent/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-[200px] md:w-[350px] h-[200px] md:h-[350px] rounded-full bg-brand-blue/5 blur-[120px] pointer-events-none animate-pulse-slow" />

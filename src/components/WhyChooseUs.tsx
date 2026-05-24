@@ -60,7 +60,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28 px-6 bg-[#121215] text-white rounded-[32px] mx-4 sm:mx-6 my-12 relative overflow-hidden">
+    <section id="about" className="py-16 md:py-28 px-4 sm:px-6 bg-[#121215] text-white rounded-[24px] sm:rounded-[32px] mx-4 sm:mx-6 my-8 sm:my-12 relative overflow-hidden">
       
       {/* Absolute Decorative Circles */}
       <div className="absolute top-0 left-0 w-80 h-80 rounded-full bg-brand-blue/15 blur-[120px] pointer-events-none" />
@@ -108,7 +108,7 @@ export default function WhyChooseUs() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-                className="bg-[#1c1d24] border border-white/5 p-8 rounded-[24px] hover:border-brand-blue/50 hover:shadow-lg hover:shadow-brand-blue/5 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-[#1c1d24] border border-white/5 p-8 pt-10 rounded-[24px] hover:border-brand-blue/50 hover:shadow-lg hover:shadow-brand-blue/5 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
                   {/* Decorative Icon Circle */}

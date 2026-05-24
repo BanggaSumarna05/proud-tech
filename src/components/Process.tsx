@@ -49,7 +49,7 @@ export default function Process() {
   ];
 
   return (
-    <section id="process" className="py-20 md:py-28 px-6 relative bg-brand-bg">
+    <section id="process" className="py-16 md:py-28 px-4 sm:px-6 relative bg-brand-bg">
       <div className="max-w-7xl mx-auto">
         
         {/* Title Grid Header */}

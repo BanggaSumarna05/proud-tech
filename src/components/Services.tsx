@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowUpRight, Monitor, Smartphone, Palette, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import TiltCard from "./effects/TiltCard";
 
 interface ServicesProps {
   onOpenConsultation: () => void;
@@ -89,7 +88,7 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
   ];
 
   return (
-    <section id="services" className="py-20 md:py-28 px-6 relative">
+    <section id="services" className="py-16 md:py-28 px-4 sm:px-6 relative">
       <div className="max-w-7xl mx-auto">
         
         {/* Main Section Header with Left-Right Distribution */}
@@ -137,13 +136,12 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className={`relative h-full flex`}
-              >
-               <TiltCard intensity={5} className={`w-full relative rounded-[28px] p-6 lg:p-8 flex flex-col justify-between transition-all duration-300 shadow-md ${
+                className={`relative rounded-[28px] p-6 lg:p-8 flex flex-col justify-between transition-all duration-300 shadow-md ${
                   service.highlight
                     ? "bg-brand-blue text-white border-2 border-brand-accent"
                     : "bg-white text-brand-dark border border-brand-border/80"
-                }`}>
+                }`}
+              >
                 {/* Accent Background Spark for Highlighted Card */}
                 {service.highlight && (
                   <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/10 rounded-full blur-3xl pointer-events-none" />
@@ -231,7 +229,6 @@ export default function Services({ onOpenConsultation }: ServicesProps) {
                 >
                   {language === "id" ? "Mulai Konsultasi Gratis →" : "Start Free Consultation →"}
                 </button>
-               </TiltCard>
               </motion.div>
             );
           })}

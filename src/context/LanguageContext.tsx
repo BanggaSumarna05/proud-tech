@@ -21,11 +21,11 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.faq": "FAQ",
     "nav.hq": "📍 PANGANDARAN, INDONESIA",
     // Hero
-    "hero.badge": "⚡ JASA PEMBUATAN WEBSITE PROFESIONAL",
+    "hero.badge": "⚡ JASA PEMBUATAN WEBSITE",
     "hero.line1": "BANGUN",
     "hero.badge_website": "WEBSITE",
     "hero.line2": "& APLIKASI",
-    "hero.line3": "MODERN UNTUK BISNIS.",
+    "hero.line3": "UNTUK BISNIS ANDA.",
     "hero.desc": "Kami merekayasa website SEO friendly dengan estetika modern kelas dunia, arsitektur kode super cepat, dan optimasi konversi tingkat tinggi. Dirancang khusus oleh web developer Indonesia terpercaya untuk membawa bisnis Anda memenangkan pasar digital.",
     "hero.btn_start": "MULAI PROYEK",
     "hero.btn_view": "LIHAT PORTOFOLIO",
@@ -196,7 +196,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Navbar
     "nav.home": "HOME",
     "nav.services": "SERVICES",
-    "nav.about": "ABOUT",
+    "nav.about": "ABOUT ",
     "nav.portfolio": "PORTFOLIO",
     "nav.navigation": "NAVIGATION",
     "nav.free_consultation": "FREE CONSULTATION",

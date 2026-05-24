@@ -1,5 +1,4 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { 
   Laptop, Smartphone, Layout, Code, Eye, 
   ArrowUpRight, Play, CheckCircle2, Award, 
@@ -9,18 +8,9 @@ import { useLanguage } from "../context/LanguageContext";
 
 export default function Showcase() {
   const { t } = useLanguage();
-  const ref = useRef<HTMLElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "center center"]
-  });
-
-  const outerCardY = useTransform(scrollYProgress, [0, 1], [150, 0]);
-  const middleCardY = useTransform(scrollYProgress, [0, 1], [250, 0]);
 
   return (
-    <section ref={ref} id="showcase-cards" className="relative py-16 md:py-24 overflow-hidden px-6">
+    <section id="showcase-cards" className="relative py-16 md:py-24 overflow-hidden px-6">
       {/* Decorative Blur Ambient Blobs */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[350px] md:w-[500px] h-[350px] md:h-[500px] rounded-full bg-brand-accent/10 blur-[100px] pointer-events-none animate-pulse-slow" />
       <div className="absolute top-1/3 right-1/4 w-[250px] md:w-[450px] h-[250px] md:h-[450px] rounded-full bg-brand-blue/10 blur-[90px] pointer-events-none animate-pulse-slow" />
@@ -43,9 +33,8 @@ export default function Showcase() {
           
           {/* CARD 1: FIGMA & UI/UX CRAFTSMANSHIP */}
           <motion.div
-            style={{ y: outerCardY }}
             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-            className="bg-[#1e1e24] text-white rounded-[32px] border border-brand-blue/20 p-8 flex flex-col justify-between min-h-[400px] sm:min-h-[460px] h-full shadow-lg relative group overflow-hidden"
+            className="bg-[#1e1e24] text-white rounded-[32px] border border-brand-blue/20 p-8 flex flex-col justify-between min-h-[460px] h-full shadow-lg relative group overflow-hidden"
           >
             <div className="absolute -bottom-10 -right-10 w-44 h-44 rounded-full bg-brand-blue/20 blur-3xl group-hover:bg-brand-blue/35 transition-colors duration-300" />
             
@@ -109,9 +98,8 @@ export default function Showcase() {
 
           {/* CARD 2: SPEED, PERFORMANCE & SEO (CORE ADVANTAGE) */}
           <motion.div
-            style={{ y: middleCardY }}
             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-            className="bg-[#0c0d12] text-white rounded-[32px] border-2 border-brand-blue p-8 flex flex-col justify-between min-h-[400px] sm:min-h-[460px] h-full shadow-2xl relative group overflow-hidden"
+            className="bg-[#0c0d12] text-white rounded-[32px] border-2 border-brand-blue p-8 flex flex-col justify-between min-h-[460px] h-full shadow-2xl relative group overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/10 rounded-full blur-3xl group-hover:bg-brand-accent/20 transition-all duration-500" />
             <div className="absolute -bottom-10 left-1/4 w-40 h-40 bg-brand-blue/30 rounded-full blur-3xl group-hover:bg-brand-blue/45 transition-all duration-500" />
@@ -183,9 +171,8 @@ export default function Showcase() {
 
           {/* CARD 3: SAAS & ANALYTICS DASHBOARD */}
           <motion.div
-            style={{ y: outerCardY }}
             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-            className="bg-[#16161a] text-white rounded-[32px] border border-brand-border/20 p-8 flex flex-col justify-between min-h-[400px] sm:min-h-[460px] h-full shadow-lg relative group overflow-hidden"
+            className="bg-[#16161a] text-white rounded-[32px] border border-brand-border/20 p-8 flex flex-col justify-between min-h-[460px] h-full shadow-lg relative group overflow-hidden"
           >
             <div className="absolute top-1/2 -right-12 w-36 h-36 bg-brand-blue/20 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-blue/30 transition-all" />
 

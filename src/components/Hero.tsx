@@ -1,9 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowUpRight, Sparkles, Star, ChevronRight, Activity, Users, Flame } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import TextReveal from "./effects/TextReveal";
-import NumberCounter from "./effects/NumberCounter";
-import Marquee from "./effects/Marquee";
 
 interface HeroProps {
   onScrollToSection: (sectionId: string) => void;
@@ -17,12 +14,11 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
   const { scrollY } = useScroll();
   const orbY = useTransform(scrollY, [0, 1000], [0, 350]);
   const meshY = useTransform(scrollY, [0, 1000], [0, 150]);
-  const mascotParallaxY = useTransform(scrollY, [0, 800], [0, -80]);
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-center items-center pt-28 pb-12 overflow-hidden px-6"
+      className="relative min-h-screen flex flex-col justify-center items-center pt-20 sm:pt-28 pb-12 overflow-hidden px-4 sm:px-6"
     >
       {/* Absolute Ambient Background Vectors & Sparks (like design reference) */}
       <motion.div 
@@ -86,7 +82,6 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
 
           {/* Mobile-only: Maskot di bawah badge, sebelum headline */}
           <motion.div
-            style={{ y: mascotParallaxY }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.15 }}
@@ -115,19 +110,19 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
           </motion.div>
 
           {/* Big Bold Uppercase Title */}
-          <h1 className="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tighter text-brand-dark uppercase mt-4">
-            <TextReveal delay={0.1}>{t("hero.line1")}</TextReveal> <br className="hidden md:block" />
-            <motion.span 
-              initial={{ scale: 0.8, opacity: 0, rotate: -5 }}
-              animate={{ scale: 1, opacity: 1, rotate: -1 }}
-              transition={{ type: "spring", delay: 0.3, stiffness: 200 }}
-              className="text-white bg-brand-blue px-4 md:px-6 md:py-1 py-0.5 mx-2 rounded-2xl border border-brand-blue/30 shadow-lg inline-block transform -rotate-1"
-            >
+          <motion.h1
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-display font-black text-[1.6rem] sm:text-4xl md:text-5xl lg:text-7xl leading-[0.95] tracking-tighter text-brand-dark uppercase"
+          >
+            {t("hero.line1")} <br className="hidden md:block" />
+            <span className="text-white bg-brand-blue px-3 sm:px-4 md:px-6 md:py-1 py-0.5 mx-1 sm:mx-2 rounded-xl sm:rounded-2xl border border-brand-blue/30 shadow-lg inline-block transform -rotate-1 text-[1.4rem] sm:text-4xl md:text-5xl lg:text-7xl">
               {t("hero.badge_website")}
-            </motion.span> 
-            <TextReveal delay={0.2}>{t("hero.line2")}</TextReveal> <br />
-            <TextReveal delay={0.3}>{t("hero.line3")}</TextReveal>
-          </h1>
+            </span> 
+            {t("hero.line2")} <br />
+            {t("hero.line3")}
+          </motion.h1>
 
           {/* Styled Subheadline */}
           <motion.p
@@ -170,7 +165,6 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
 
         {/* Right: 3D Character Mascot — Desktop Only */}
         <motion.div
-          style={{ y: mascotParallaxY }}
           initial={{ opacity: 0, scale: 0.85, x: 40 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -206,56 +200,38 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="mt-16 pt-8 border-t border-brand-border/60 w-full max-w-6xl z-10 grid grid-cols-1 md:grid-cols-3 gap-6 items-center text-left"
+        className="mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-brand-border/60 w-full max-w-6xl z-10 grid grid-cols-3 gap-4 sm:gap-6 items-center text-left"
       >
         {/* Small text helper info */}
         <div className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-brand-accent border border-brand-blue" />
-          <p className="font-display font-semibold text-xs text-brand-dark/50 tracking-wide uppercase">
+          <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-brand-accent border border-brand-blue shrink-0" />
+          <p className="font-display font-semibold text-[9px] sm:text-xs text-brand-dark/50 tracking-wide uppercase">
             {t("hero.badge")}
           </p>
         </div>
 
         {/* Stat Item 1 */}
-        <div className="flex items-center gap-4 md:justify-center border-l-0 md:border-l border-brand-border/60 pl-0 md:pl-6">
-          <div className="w-10 h-10 rounded-full bg-brand-blue/5 flex items-center justify-center text-brand-blue">
-            <Activity className="w-5 h-5" />
+        <div className="flex items-center gap-2 sm:gap-4 justify-center border-l border-brand-border/60 pl-3 sm:pl-6">
+          <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-brand-blue/5 flex items-center justify-center text-brand-blue shrink-0">
+            <Activity className="w-4 sm:w-5 h-4 sm:h-5" />
           </div>
           <div>
-            <div className="font-display font-black text-2xl text-brand-dark leading-none"><NumberCounter value={50} />+</div>
-            <div className="text-[10px] text-brand-dark/50 font-bold uppercase tracking-wider mt-1">{t("hero.stats_done")}</div>
+            <div className="font-display font-black text-lg sm:text-2xl text-brand-dark leading-none">50+</div>
+            <div className="text-[8px] sm:text-[10px] text-brand-dark/50 font-bold uppercase tracking-wider mt-0.5 sm:mt-1">{t("hero.stats_done")}</div>
           </div>
         </div>
 
         {/* Stat Item 2 */}
-        <div className="flex items-center gap-4 md:justify-center border-l-0 md:border-l border-brand-border/60 pl-0 md:pl-6">
-          <div className="w-10 h-10 rounded-full bg-brand-accent/15 flex items-center justify-center text-brand-blue">
-            <Users className="w-5 h-5" />
+        <div className="flex items-center gap-2 sm:gap-4 justify-center border-l border-brand-border/60 pl-3 sm:pl-6">
+          <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-brand-accent/15 flex items-center justify-center text-brand-blue shrink-0">
+            <Users className="w-4 sm:w-5 h-4 sm:h-5" />
           </div>
           <div>
-            <div className="font-display font-black text-2xl text-brand-dark leading-none"><NumberCounter value={20} />+</div>
-            <div className="text-[10px] text-brand-dark/50 font-bold uppercase tracking-wider mt-1">{t("hero.stats_happy")}</div>
+            <div className="font-display font-black text-lg sm:text-2xl text-brand-dark leading-none">20+</div>
+            <div className="text-[8px] sm:text-[10px] text-brand-dark/50 font-bold uppercase tracking-wider mt-0.5 sm:mt-1">{t("hero.stats_happy")}</div>
           </div>
         </div>
       </motion.div>
-
-      {/* Infinite Marquee Running Text */}
-      <div className="absolute bottom-0 w-full bg-brand-blue py-3 border-y border-white/10 z-20 overflow-hidden shadow-2xl">
-        <Marquee speed={30} className="text-white">
-          <span className="mx-6 font-display font-black text-xs md:text-sm tracking-widest uppercase flex items-center gap-6">
-            <span>PREMIUM UI/UX</span>
-            <span className="w-1.5 h-1.5 bg-brand-accent rounded-full" />
-            <span>SCALABLE APPS</span>
-            <span className="w-1.5 h-1.5 bg-brand-accent rounded-full" />
-            <span>HIGH PERFORMANCE</span>
-            <span className="w-1.5 h-1.5 bg-brand-accent rounded-full" />
-            <span>SEO OPTIMIZED</span>
-            <span className="w-1.5 h-1.5 bg-brand-accent rounded-full" />
-            <span>MODERN DESIGN</span>
-            <span className="w-1.5 h-1.5 bg-brand-accent rounded-full" />
-          </span>
-        </Marquee>
-      </div>
     </section>
   );
 }

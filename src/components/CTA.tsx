@@ -162,7 +162,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
   };
 
   return (
-    <section id="pricing" className="py-20 md:py-28 px-6 relative">
+    <section id="pricing" className="py-16 md:py-28 px-4 sm:px-6 relative">
       
       {/* Decorative background vectors */}
       <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-brand-blue/10 rounded-full blur-[100px] pointer-events-none" />
@@ -237,11 +237,11 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
                   </div>
                   
                   {/* Huge Styled Price Badge */}
-                  <div className="bg-brand-accent/35 border border-brand-accent/80 px-6 py-3 rounded-2xl text-left sm:text-right w-full sm:w-auto shrink-0">
+                  <div className="bg-brand-accent/35 border border-brand-accent/80 px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl text-left sm:text-right w-full sm:w-auto shrink-0">
                     <span className="font-sans font-medium text-[9px] text-[#1f1f1f]/60 uppercase tracking-widest block font-bold">
                       {language === "id" ? "INVESTASI MULAI" : "INVESTMENT STARTS FROM"}
                     </span>
-                    <span className="font-display font-black text-xl md:text-2xl text-brand-blue block tracking-tight">{packages[selectedTier].price}</span>
+                    <span className="font-display font-black text-lg sm:text-xl md:text-2xl text-brand-blue block tracking-tight">{packages[selectedTier].price}</span>
                   </div>
                 </div>
 

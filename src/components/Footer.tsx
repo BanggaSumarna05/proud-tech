@@ -26,7 +26,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
   };
 
   return (
-    <footer id="footer" className="relative bg-[#090a0f] border-t border-white/10 pt-20 pb-8 px-6 overflow-hidden text-white">
+    <footer id="footer" className="relative bg-[#090a0f] border-t border-white/10 pt-20 pb-20 sm:pb-8 px-4 sm:px-6 overflow-hidden text-white">
       
       {/* Decorative Grid backdrop */}
       <div className="absolute inset-x-0 bottom-0 h-44 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-40" />

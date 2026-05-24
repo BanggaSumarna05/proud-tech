@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, Menu, X, MessageSquare, Compass, Settings, UserCheck, HelpCircle, Sparkles } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import Magnetic from "./effects/Magnetic";
 
 interface NavbarProps {
   onScrollToSection: (sectionId: string) => void;
@@ -59,33 +58,21 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
     };
 
     const observer = new IntersectionObserver(handleIntersection, observerOptions);
-    const sectionIds = ["home", "services", "about", "portfolio"];
-    const observedIds = new Set<string>();
 
-    const observeElements = () => {
-      sectionIds.forEach((id) => {
-        if (!observedIds.has(id)) {
-          const el = document.getElementById(id);
-          if (el) {
-            observer.observe(el);
-            observedIds.add(id);
-          }
-        }
-      });
-    };
-
-    observeElements();
-    // Poll to observe lazy-loaded elements
-    const intervalId = setInterval(observeElements, 500);
+    menuItems.forEach((item) => {
+      const el = document.getElementById(item.id);
+      if (el) observer.observe(el);
+    });
 
     return () => {
-      clearInterval(intervalId);
-      observer.disconnect();
+      menuItems.forEach((item) => {
+        const el = document.getElementById(item.id);
+        if (el) observer.unobserve(el);
+      });
     };
   }, []);
 
   const handleItemClick = (id: string) => {
-    setActiveSection(id);
     onScrollToSection(id);
     setIsMobileMenuOpen(false);
   };
@@ -93,7 +80,7 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
   return (
     <>
       {/* 2026 High Prestige Top Feature Alert Bar */}
-      <div className={`fixed top-0 inset-x-0 z-50 h-7 bg-[#111115] flex items-center justify-center text-[10px] font-mono text-brand-accent font-bold tracking-widest px-4 border-b border-white/5 select-none uppercase transition-transform duration-300 ${isAlertVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+      <div className={`fixed top-0 inset-x-0 z-50 h-7 bg-[#111115] flex items-center justify-center text-[8px] sm:text-[10px] font-mono text-brand-accent font-bold tracking-widest px-4 border-b border-white/5 select-none uppercase transition-transform duration-300 ${isAlertVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <span className="flex items-center gap-1.5 animate-pulse">
           <Sparkles className="w-3 h-3 text-brand-accent fill-brand-accent shrink-0" />
           {language === "id" 
@@ -105,7 +92,7 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
 
       <header
         className={`fixed inset-x-0 z-50 transition-all duration-500 ease-out ${
-          isScrolled ? "top-10 px-4 sm:px-6" : "top-7 px-6 py-2"
+          isScrolled ? "top-8 sm:top-10 px-3 sm:px-6" : "top-7 px-4 sm:px-6 py-2"
         }`}
       >
         <div
@@ -118,49 +105,46 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
           
           {/* Left Menu / Logo Area */}
           <div className="flex items-center gap-10">
-            <Magnetic strength={0.1}>
-              <button
-                id="navbar-logo"
-                onClick={() => handleItemClick("home")}
-                className="flex items-center gap-2.5 group cursor-pointer selection:bg-transparent text-left"
-                aria-label="Proud Tech Logo"
-              >
-                <img 
-                  src="/images/Kebutuhan Website/Logo Proud Tech di nav.webp" 
-                  alt="Proud Tech Logo"
-                  loading="eager"
-                  decoding="async"
-                  width={80}
-                  height={24}
-                  className="h-8 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              </button>
-            </Magnetic>
+            <button
+              id="navbar-logo"
+              onClick={() => handleItemClick("home")}
+              className="flex items-center gap-2.5 group cursor-pointer selection:bg-transparent text-left"
+              aria-label="Proud Tech Logo"
+            >
+              <img 
+                src="/images/Kebutuhan Website/Logo Proud Tech di nav.webp" 
+                alt="Proud Tech Logo"
+                loading="eager"
+                decoding="async"
+                width={80}
+                height={24}
+                className="h-8 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+            </button>
  
             {/* Left Nav Menu Items (Desktop Only) */}
             <nav className="hidden md:flex items-center gap-6">
               {menuItems.map((item) => {
                 const isActive = activeSection === item.id;
                 return (
-                  <Magnetic key={item.id} strength={0.2}>
-                    <button
-                      onClick={() => handleItemClick(item.id)}
-                      className={`relative py-1.5 px-3 font-display font-black text-xxs tracking-wider uppercase transition-all duration-300 cursor-pointer rounded-full ${
-                        isActive 
-                          ? "text-brand-blue bg-brand-blue/8" 
-                          : "text-brand-dark/75 hover:text-brand-blue hover:bg-brand-blue/5"
-                      }`}
-                    >
-                      <span className="relative z-10">{item.name}</span>
-                      {isActive && (
-                        <motion.span
-                          layoutId="navActiveIndicator"
-                          className="absolute bottom-0 inset-x-3 h-0.5 bg-brand-accent rounded-full"
-                          transition={{ type: "spring", stiffness: 350, damping: 25 }}
-                        />
-                      )}
-                    </button>
-                  </Magnetic>
+                  <button
+                    key={item.id}
+                    onClick={() => handleItemClick(item.id)}
+                    className={`relative py-1.5 px-3 font-display font-black text-xxs tracking-wider uppercase transition-all duration-300 cursor-pointer rounded-full ${
+                      isActive 
+                        ? "text-brand-blue bg-brand-blue/8" 
+                        : "text-brand-dark/75 hover:text-brand-blue hover:bg-brand-blue/5"
+                    }`}
+                  >
+                    <span className="relative z-10">{item.name}</span>
+                    {isActive && (
+                      <motion.span
+                        layoutId="navActiveIndicator"
+                        className="absolute bottom-0 inset-x-3 h-0.5 bg-brand-accent rounded-full"
+                        transition={{ type: "spring", stiffness: 350, damping: 25 }}
+                      />
+                    )}
+                  </button>
                 );
               })}
             </nav>
@@ -203,18 +187,16 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
               </button>
             </div>
 
-            <Magnetic strength={0.3}>
-              <button
-                id="desktop-contact-btn"
-                onClick={onOpenConsultation}
-                className="group flex items-center gap-2 bg-brand-blue hover:bg-brand-blue/90 text-white font-display font-extrabold text-xs tracking-tight uppercase px-5 py-2.5 rounded-full shadow-md ring-2 ring-brand-accent/40 transition-all duration-300 cursor-pointer hover:scale-102 active:scale-98 hover:ring-brand-accent/70"
-              >
-                {t("nav.contact_us")}
-                <span className="w-5 h-5 rounded-full bg-brand-accent text-brand-dark group-hover:bg-white group-hover:text-brand-blue flex items-center justify-center transition-colors duration-300">
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </span>
-              </button>
-            </Magnetic>
+            <button
+              id="desktop-contact-btn"
+              onClick={onOpenConsultation}
+              className="group flex items-center gap-2 bg-brand-blue hover:bg-brand-blue/90 text-white font-display font-extrabold text-xs tracking-tight uppercase px-5 py-2.5 rounded-full shadow-md ring-2 ring-brand-accent/40 transition-all duration-300 cursor-pointer hover:scale-102 active:scale-98 hover:ring-brand-accent/70"
+            >
+              {t("nav.contact_us")}
+              <span className="w-5 h-5 rounded-full bg-brand-accent text-brand-dark group-hover:bg-white group-hover:text-brand-blue flex items-center justify-center transition-colors duration-300">
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </span>
+            </button>
           </div>
 
           {/* Mobile Navigation Interface Panel */}
@@ -254,7 +236,7 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
 
       {/* Mobile Drawer Container */}
       <div
-        className={`fixed top-0 right-0 bottom-0 w-[80%] max-w-xs bg-white border-l border-brand-border/60 z-50 p-8 flex flex-col justify-between overflow-y-auto md:hidden transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) ${
+        className={`fixed top-0 right-0 bottom-0 w-[80%] max-w-xs bg-white border-l border-brand-border/60 z-[60] p-8 flex flex-col justify-between overflow-y-auto md:hidden transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) ${
           isMobileMenuOpen ? "transform translate-x-0" : "transform translate-x-full"
         }`}
       >

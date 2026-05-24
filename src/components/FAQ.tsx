@@ -78,7 +78,7 @@ export default function FAQ() {
     {
       id: "faq-6",
       question: {
-        id: "Bagaimana dukungan dukungan/maintenance setelah website aktif?",
+        id: "Bagaimana dukungan/maintenance setelah website aktif?",
         en: "What level of support or maintenance is available post-launch?",
       },
       answer: {
@@ -100,7 +100,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-20 md:py-28 px-6 relative bg-white border-t border-brand-border/40">
+    <section id="faq" className="py-16 md:py-28 px-4 sm:px-6 relative bg-white border-t border-brand-border/40">
       {/* Dynamic Background Accents */}
       <div className="absolute top-1/3 left-0 w-[200px] h-[200px] bg-brand-blue/5 rounded-full blur-[80px] pointer-events-none" />
       <div className="absolute bottom-1/3 right-0 w-[200px] h-[200px] bg-brand-accent/10 rounded-full blur-[80px] pointer-events-none animate-pulse-slow" />

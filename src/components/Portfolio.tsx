@@ -2,8 +2,6 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, Monitor, Smartphone, Database, CheckCircle2, ChevronRight, Sliders } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import TiltCard from "./effects/TiltCard";
-import ParallaxImage from "./effects/ParallaxImage";
 
 interface PortfolioProps {
   onSelectProject: (projectName: string) => void;
@@ -162,18 +160,18 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
             >
               <div>
                 {/* Visual Card Graphic representation with gradient bg inside */}
-                <TiltCard intensity={10}>
-                  <div 
-                    onClick={() => onViewCaseStudy(project.title)}
-                    className={`relative h-48 md:h-56 rounded-2xl bg-gradient-to-br ${project.color} overflow-hidden mb-6 flex items-center justify-center border border-black/10 shadow-inner group-hover:-translate-y-1 transition-transform duration-300 cursor-pointer group/image`}
-                  >
-                    {project.image ? (
-                      <ParallaxImage 
-                        src={project.image} 
-                        alt={project.title}
-                        className="group-hover/image:scale-105 transition-transform duration-500"
-                      />
-                    ) : (
+                <div 
+                  onClick={() => onViewCaseStudy(project.title)}
+                  className={`relative h-48 md:h-56 rounded-2xl bg-gradient-to-br ${project.color} overflow-hidden mb-6 flex items-center justify-center border border-black/10 shadow-inner group-hover:-translate-y-1 transition-transform duration-300 cursor-pointer group/image`}
+                >
+                  {project.image ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover group-hover/image:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
                     <>
                       {/* Grid Lines Overlay */}
                       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:12px_12px] opacity-40" />
@@ -234,8 +232,7 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
                   <span className="absolute bottom-3 left-3 bg-[#121215]/80 backdrop-blur-md border border-white/15 text-[8.5px] font-mono text-brand-accent font-bold py-1 px-3 rounded-full animate-pulse">
                     ⚡ {project.stats}
                   </span>
-                  </div>
-                </TiltCard>
+                </div>
 
                 {/* Info Area */}
                 <div className="flex justify-between items-start mb-3">
