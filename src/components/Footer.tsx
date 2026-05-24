@@ -11,7 +11,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
   const [copied, setCopied] = useState(false);
 
   const socialLinks = [
-    { name: "Instagram", url: "https://instagram.com/pruodtech.id", icon: Instagram },
+    { name: "Instagram", url: "https://instagram.com/proudtech.id", icon: Instagram },
     { name: "Direct WhatsApp", url: "https://wa.me/6285861985540", icon: Phone },
   ];
 
