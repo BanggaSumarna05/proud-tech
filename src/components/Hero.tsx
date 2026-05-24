@@ -115,16 +115,17 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
           </motion.div>
 
           {/* Big Bold Uppercase Title */}
-          <h1 className="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tighter text-brand-dark uppercase mt-4">
+          <h1 className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.2] md:leading-[0.95] tracking-tighter text-brand-dark uppercase mt-4">
             <TextReveal delay={0.1}>{t("hero.line1")}</TextReveal> <br className="hidden md:block" />
             <motion.span 
-              initial={{ scale: 0.8, opacity: 0, rotate: -5 }}
-              animate={{ scale: 1, opacity: 1, rotate: -1 }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
               transition={{ type: "spring", delay: 0.3, stiffness: 200 }}
-              className="text-white bg-brand-blue px-4 md:px-6 md:py-1 py-0.5 mx-2 rounded-2xl border border-brand-blue/30 shadow-lg inline-block transform -rotate-1"
+              className="text-white bg-brand-blue text-3xl sm:text-4xl md:text-inherit px-3 md:px-6 py-1 mx-1 md:mx-2 rounded-xl md:rounded-2xl border border-brand-blue/30 shadow-lg inline-block align-middle transform md:-rotate-1 relative -top-1 md:top-0"
             >
               {t("hero.badge_website")}
             </motion.span> 
+            <br className="block md:hidden" />
             <TextReveal delay={0.2}>{t("hero.line2")}</TextReveal> <br />
             <TextReveal delay={0.3}>{t("hero.line3")}</TextReveal>
           </h1>
