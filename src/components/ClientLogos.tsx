@@ -22,7 +22,7 @@ export default function ClientLogos() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
             </span>
-            <span className="font-display font-black text-xxs tracking-widest text-brand-dark/40 uppercase">
+            <span className="font-display font-black text-xxs tracking-widest text-brand-dark/60 uppercase">
               {language === "id" ? "MITRA KLAIM PRESTASI" : "TRUSTED BY HIGH-PERFORMANCE BRANDS"}
             </span>
           </div>
@@ -52,6 +52,8 @@ export default function ClientLogos() {
                       src={brand.image} 
                       alt={brand.name}
                       loading="lazy"
+                      width={140}
+                      height={48}
                       className="max-w-full max-h-full object-contain filter grayscale opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300 shrink-0"
                     />
                   </div>

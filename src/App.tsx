@@ -4,7 +4,7 @@ import Hero from "./components/Hero";
 import PageLoader from "./components/PageLoader";
 import { useLanguage } from "./context/LanguageContext";
 import { MessageCircle, X, Send, ArrowUp } from "lucide-react";
-import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 // Lazy loaded components (Below the fold)
 const ClientLogos = React.lazy(() => import("./components/ClientLogos"));
@@ -20,18 +20,9 @@ const FAQ = React.lazy(() => import("./components/FAQ"));
 const Testimonials = React.lazy(() => import("./components/Testimonials"));
 const Footer = React.lazy(() => import("./components/Footer"));
 
-// ── Helper: Smooth section reveal on scroll ──
-function SectionReveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </motion.div>
-  );
+// ── Helper: Section wrapper (lightweight) ──
+function SectionReveal({ children }: { children: React.ReactNode; delay?: number }) {
+  return <>{children}</>;
 }
 
 export default function App() {
@@ -48,7 +39,7 @@ export default function App() {
 
   // Defer loading heavy below-the-fold components
   useEffect(() => {
-    const timer = setTimeout(() => setLoadBelowFold(true), 2000);
+    const timer = setTimeout(() => setLoadBelowFold(true), 500);
     const handleInteraction = () => {
       setLoadBelowFold(true);
       window.removeEventListener('scroll', handleInteraction);
@@ -66,13 +57,20 @@ export default function App() {
     };
   }, []);
 
-  // Scroll progress bar
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
-  // Show scroll-to-top button after 400px
+
+  // Combined scroll handler: scroll-to-top button + progress bar
   useEffect(() => {
-    const handleScroll = () => setShowScrollTop(window.scrollY > 400);
+    const progressBar = document.getElementById("scroll-progress");
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+      // Update CSS scroll progress bar
+      if (progressBar) {
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollHeight > 0 ? window.scrollY / scrollHeight : 0;
+        progressBar.style.transform = `scaleX(${progress})`;
+      }
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -129,10 +127,10 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* ── Scroll Progress Bar ── */}
-      <motion.div
+      {/* ── Scroll Progress Bar (CSS-only for performance) ── */}
+      <div
         className="fixed top-0 left-0 right-0 h-[3px] bg-brand-accent z-[9999] origin-left"
-        style={{ scaleX }}
+        id="scroll-progress"
       />
 
       <div className={`relative min-h-screen bg-brand-bg text-brand-dark selection:bg-brand-blue selection:text-white ${isInitialLoading ? "h-screen overflow-hidden" : ""}`}>

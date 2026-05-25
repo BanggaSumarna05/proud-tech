@@ -243,7 +243,7 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
         <div className="flex flex-col gap-8 mt-12">
           
           <div className="flex items-center justify-between border-b border-brand-border/50 pb-5">
-            <span className="font-display font-black text-xxs tracking-widest text-brand-dark/40 uppercase">{t("nav.navigation")}</span>
+            <span className="font-display font-black text-xxs tracking-widest text-brand-dark/60 uppercase">{t("nav.navigation")}</span>
             
             {/* Language toggle capsule for mobile drawer */}
             <div className="flex items-center bg-black/5 p-0.5 rounded-full border border-brand-border/40 text-[9px] font-bold font-mono">
@@ -303,8 +303,8 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
               <span className="w-2 h-2 rounded bg-brand-accent" />
               <span className="font-bold">📍 PANGANDARAN, INDONESIA</span>
             </div>
-            <div className="text-brand-dark/50">📩 PROUDETECH@GMAIL.COM</div>
-            <div className="text-brand-dark/50">📞 +62 858-6198-5540</div>
+            <div className="text-brand-dark/70">📩 PROUDETECH@GMAIL.COM</div>
+            <div className="text-brand-dark/70">📞 +62 858-6198-5540</div>
           </div>
         </div>
 

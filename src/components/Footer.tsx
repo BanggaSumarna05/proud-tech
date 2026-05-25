@@ -155,7 +155,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
         <div className="h-px bg-white/10 w-full my-8" />
 
         {/* Bottom Footer Credits layout */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-xs text-white/50 font-medium">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-xs text-white/70 font-medium">
           <div className="flex items-center gap-1.5 order-2 sm:order-1">
             <span>© {new Date().getFullYear()} Proud Tech. {language === "id" ? "Hak Cipta Dilindungi." : "All Rights Reserved."}</span>
           </div>

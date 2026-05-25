@@ -63,7 +63,7 @@ export default function Showcase() {
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
                   <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
                 </div>
-                <span className="text-[8px] font-mono text-white/40">figma-canvas_v2.fig</span>
+                <span className="text-[8px] font-mono text-white/60">figma-canvas_v2.fig</span>
               </div>
               
               <div className="space-y-3 flex-1 flex flex-col justify-center">
@@ -84,11 +84,11 @@ export default function Showcase() {
                 
                 <div className="grid grid-cols-2 gap-2">
                   <div className="bg-white/5 p-2 rounded-xl border border-white/5 text-center">
-                    <span className="text-[7px] text-white/40 block uppercase font-mono">Grid System</span>
+                    <span className="text-[7px] text-white/60 block uppercase font-mono">Grid System</span>
                     <span className="text-xxs text-brand-accent font-bold font-mono">12-Col Responsive</span>
                   </div>
                   <div className="bg-white/5 p-2 rounded-xl border border-white/5 text-center">
-                    <span className="text-[7px] text-white/40 block uppercase font-mono">Interactivity</span>
+                    <span className="text-[7px] text-white/60 block uppercase font-mono">Interactivity</span>
                     <span className="text-xxs text-[#a19fff] font-bold font-mono">Spring Physics</span>
                   </div>
                 </div>
@@ -205,17 +205,14 @@ export default function Showcase() {
                 {[35, 60, 50, 80, 65, 95].map((val, idx) => (
                   <div key={idx} className="flex flex-col items-center gap-1.5">
                     <div className="w-full rounded-md bg-brand-blue/20 h-16 relative overflow-hidden">
-                      <motion.div 
-                        initial={{ height: 0 }}
-                        animate={{ height: `${val}%` }}
-                        transition={{ delay: idx * 0.1, duration: 1 }}
+                      <div 
                         className="absolute bottom-0 left-0 right-0 bg-brand-blue rounded-md"
                         style={{ height: `${val}%` }}
                       >
                         {idx === 5 && <div className="absolute inset-0 bg-brand-accent opacity-30 animate-pulse" />}
-                      </motion.div>
+                      </div>
                     </div>
-                    <span className="text-[6.5px] font-mono text-white/30">M{idx + 1}</span>
+                    <span className="text-[6.5px] font-mono text-white/60">M{idx + 1}</span>
                   </div>
                 ))}
               </div>

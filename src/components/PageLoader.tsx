@@ -29,7 +29,7 @@ export default function PageLoader({ onComplete }: PageLoaderProps) {
       return;
     }
 
-    // Increment progress counter with realistic ease-in curves for professional feel
+    // Increment progress counter — ultra fast for real performance
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -37,14 +37,14 @@ export default function PageLoader({ onComplete }: PageLoaderProps) {
           return 100;
         }
         
-        // Random incremental steps to make loading progress look organic and dynamic
-        const step = prev < 30 ? Math.floor(Math.random() * 8) + 5
-                   : prev < 70 ? Math.floor(Math.random() * 5) + 3
-                   : Math.floor(Math.random() * 12) + 8;
+        // Large fast steps — complete in ~0.4s total
+        const step = prev < 40 ? Math.floor(Math.random() * 15) + 15
+                   : prev < 80 ? Math.floor(Math.random() * 12) + 10
+                   : Math.floor(Math.random() * 20) + 15;
                    
         return Math.min(prev + step, 100);
       });
-    }, 120);
+    }, 60);
 
     return () => clearInterval(interval);
   }, []);
@@ -66,12 +66,9 @@ export default function PageLoader({ onComplete }: PageLoaderProps) {
     }
 
     if (progress === 100) {
-      const isBot = /bot|googlebot|crawler|spider|robot|crawling|lighthouse/i.test(navigator.userAgent);
-      const exitDelay = isBot ? 0 : 500; // Instantly exit for bots to fix LCP/CLS
-
       const exitTimeout = setTimeout(() => {
         onComplete();
-      }, exitDelay); // Small premium hold-on at 100% for real users
+      }, 100); // Near-instant exit to minimize LCP blocking
       return () => clearTimeout(exitTimeout);
     }
   }, [progress, onComplete]);

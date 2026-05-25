@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { ArrowUpRight, Sparkles, Star, ChevronRight, Activity, Users, Flame } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -9,11 +9,6 @@ interface HeroProps {
 
 export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProps) {
   const { t, language } = useLanguage();
-  
-  // Parallax background scroll effects
-  const { scrollY } = useScroll();
-  const orbY = useTransform(scrollY, [0, 1000], [0, 350]);
-  const meshY = useTransform(scrollY, [0, 1000], [0, 150]);
 
   return (
     <section
@@ -32,30 +27,18 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
         className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:32px_32px] md:bg-[size:48px_48px] pointer-events-none opacity-50" 
       />
 
-      {/* Blue Sparkle/Asterisk Icons floating */}
-      <motion.div
-        animate={{ y: [0, -15, 0], rotate: [0, 15, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-28 left-8 md:left-24 text-brand-blue/30 scale-75 md:scale-100 pointer-events-none"
-      >
+      {/* Blue Sparkle/Asterisk Icons floating — CSS only for performance */}
+      <div className="absolute top-28 left-8 md:left-24 text-brand-blue/30 scale-75 md:scale-100 pointer-events-none animate-float-1">
         <Star className="w-12 h-12 fill-brand-blue/10" aria-hidden="true" />
-      </motion.div>
+      </div>
 
-      <motion.div
-        animate={{ y: [0, 20, 0], rotate: [0, -20, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-44 right-6 md:right-28 text-brand-accent pointer-events-none animate-pulse"
-      >
+      <div className="absolute top-44 right-6 md:right-28 text-brand-accent pointer-events-none animate-float-2">
         <Sparkles className="w-10 h-10 text-brand-blue" aria-hidden="true" />
-      </motion.div>
+      </div>
 
-      <motion.div
-        animate={{ x: [0, 15, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/3 left-6 md:left-20 text-brand-blue/20 pointer-events-none"
-      >
+      <div className="absolute bottom-1/3 left-6 md:left-20 text-brand-blue/20 pointer-events-none animate-float-side">
         <div className="w-6 h-6 rounded-full border-4 border-dashed border-brand-blue/30" />
-      </motion.div>
+      </div>
 
       {/* Hero Content Wrapper */}
       <div className="max-w-6xl w-full z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-4">
@@ -88,7 +71,7 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
             className="block lg:hidden relative w-full max-w-[300px] sm:max-w-[380px] aspect-square mx-auto my-2"
           >
             <div className="absolute inset-4 rounded-full bg-gradient-to-br from-brand-blue/15 via-brand-accent/10 to-transparent blur-2xl pointer-events-none" />
-            <motion.img
+            <img
               src="/images/character-waving.webp"
               alt="Proud Tech 3D Mascot"
               loading="eager"
@@ -96,17 +79,13 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
               decoding="async"
               width={380}
               height={380}
-              className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="relative z-10 w-full h-full object-contain drop-shadow-2xl animate-float-1"
             />
-            <motion.div
-              animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute top-6 right-2 bg-brand-accent text-brand-dark font-display font-black text-[9px] tracking-wider px-3 py-1.5 rounded-full shadow-lg border border-brand-dark/10"
+            <div
+              className="absolute top-6 right-2 bg-brand-accent text-brand-dark font-display font-black text-[9px] tracking-wider px-3 py-1.5 rounded-full shadow-lg border border-brand-dark/10 animate-float-2"
             >
               👋 {language === "id" ? "HALO!" : "HELLO!"}
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Big Bold Uppercase Title */}
@@ -129,7 +108,7 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-8 text-brand-dark/70 text-base md:text-lg max-w-2xl leading-relaxed font-sans"
+            className="mt-8 text-brand-dark/80 text-base md:text-lg max-w-2xl leading-relaxed font-sans"
           >
             {t("hero.desc")}
           </motion.p>
@@ -172,7 +151,7 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
         >
           {/* Glowing backdrop circle behind character */}
           <div className="absolute inset-4 rounded-full bg-gradient-to-br from-brand-blue/15 via-brand-accent/10 to-transparent blur-2xl pointer-events-none" />
-          <motion.img
+          <img
             src="/images/character-waving.webp"
             alt="Proud Tech 3D Mascot"
             loading="eager"
@@ -180,18 +159,14 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
             decoding="async"
             width={540}
             height={540}
-            className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="relative z-10 w-full h-full object-contain drop-shadow-2xl animate-float-1"
           />
           {/* Small floating accent badge */}
-          <motion.div
-            animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute top-6 right-2 bg-brand-accent text-brand-dark font-display font-black text-[9px] tracking-wider px-3 py-1.5 rounded-full shadow-lg border border-brand-dark/10"
+          <div
+            className="absolute top-6 right-2 bg-brand-accent text-brand-dark font-display font-black text-[9px] tracking-wider px-3 py-1.5 rounded-full shadow-lg border border-brand-dark/10 animate-float-2"
           >
             👋 {language === "id" ? "HALO!" : "HELLO!"}
-          </motion.div>
+          </div>
         </motion.div>
       </div>
 
@@ -205,7 +180,7 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
         {/* Small text helper info */}
         <div className="flex items-center gap-3">
           <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-brand-accent border border-brand-blue shrink-0" />
-          <p className="font-display font-semibold text-[9px] sm:text-xs text-brand-dark/50 tracking-wide uppercase">
+          <p className="font-display font-semibold text-[9px] sm:text-xs text-brand-dark/70 tracking-wide uppercase">
             {t("hero.badge")}
           </p>
         </div>
@@ -217,7 +192,7 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
           </div>
           <div>
             <div className="font-display font-black text-lg sm:text-2xl text-brand-dark leading-none">50+</div>
-            <div className="text-[8px] sm:text-[10px] text-brand-dark/50 font-bold uppercase tracking-wider mt-0.5 sm:mt-1">{t("hero.stats_done")}</div>
+            <div className="text-[8px] sm:text-[10px] text-brand-dark/70 font-bold uppercase tracking-wider mt-0.5 sm:mt-1">{t("hero.stats_done")}</div>
           </div>
         </div>
 
@@ -228,7 +203,7 @@ export default function Hero({ onScrollToSection, onOpenConsultation }: HeroProp
           </div>
           <div>
             <div className="font-display font-black text-lg sm:text-2xl text-brand-dark leading-none">20+</div>
-            <div className="text-[8px] sm:text-[10px] text-brand-dark/50 font-bold uppercase tracking-wider mt-0.5 sm:mt-1">{t("hero.stats_happy")}</div>
+            <div className="text-[8px] sm:text-[10px] text-brand-dark/70 font-bold uppercase tracking-wider mt-0.5 sm:mt-1">{t("hero.stats_happy")}</div>
           </div>
         </div>
       </motion.div>

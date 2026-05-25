@@ -157,6 +157,8 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
                       src={project.image} 
                       alt={project.title}
                       loading="lazy"
+                      width={400}
+                      height={224}
                       className="absolute inset-0 w-full h-full object-cover group-hover/image:scale-105 transition-transform duration-500"
                     />
                   ) : (

@@ -132,13 +132,15 @@ export default function Testimonials() {
                   src={test.avatar} 
                   alt={test.name}
                   loading="lazy"
+                  width={56}
+                  height={56}
                   className="w-14 h-14 rounded-full object-cover border-2 border-brand-accent shadow-sm shrink-0"
                 />
                 <div className="text-left flex-1 min-w-0">
                   <h4 className="font-display font-black text-sm text-brand-dark leading-none mb-1">
                     {test.name}
                   </h4>
-                  <p className="text-brand-dark/50 text-[10px] leading-tight font-semibold">
+                  <p className="text-brand-dark/70 text-[10px] leading-tight font-semibold">
                     {test.role}
                   </p>
                   {/* Company badge — more prominent */}
@@ -156,7 +158,7 @@ export default function Testimonials() {
         </div>
 
         {/* Small Bottom Brand signature */}
-        <div className="mt-12 text-center text-xxs font-mono text-brand-dark/40 flex items-center justify-center gap-1.5">
+        <div className="mt-12 text-center text-xxs font-mono text-brand-dark/60 flex items-center justify-center gap-1.5">
           <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500 animate-pulse" />
           Proud Tech Studio • Kepercayaan yang Dibangun Bersama
         </div>

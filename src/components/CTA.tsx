@@ -363,7 +363,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
               {/* Contact Form wrapper */}
               <form onSubmit={handleWhatsAppRedirect} className="space-y-4">
                 <div className="space-y-1.5">
-                  <label htmlFor="user-name-input" className="block text-[10px] font-mono tracking-widest text-white/50 uppercase">
+                  <label htmlFor="user-name-input" className="block text-[10px] font-mono tracking-widest text-white/70 uppercase">
                     {language === "id" ? "Nama Anda" : "Your Full Name"}
                   </label>
                   <input
@@ -378,7 +378,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
                 </div>
 
                 <div className="space-y-1.5">
-                  <label htmlFor="user-business-input" className="block text-[10px] font-mono tracking-widest text-white/50 uppercase">
+                  <label htmlFor="user-business-input" className="block text-[10px] font-mono tracking-widest text-white/70 uppercase">
                     {language === "id" ? "Nama Bisnis & Bidang" : "Brand Name & Business Sector"}
                   </label>
                   <input
@@ -406,7 +406,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
                 </button>
                 
                 {/* Frictionless Trust Badges */}
-                <div className="mt-3.5 flex flex-wrap items-center justify-center gap-2 text-[10px] text-white/50 font-mono">
+                <div className="mt-3.5 flex flex-wrap items-center justify-center gap-2 text-[10px] text-white/70 font-mono">
                   <span className="flex items-center gap-1 text-brand-accent font-bold">
                     ⚡ {language === "id" ? "Respon Cepat < 15 Menit" : "Fast Response < 15 Mins"}
                   </span>
@@ -417,7 +417,7 @@ export default function CTA({ initialSelectedPackage, onOpenConsultation }: CTAP
             </div>
 
             {/* Direct Line Badge */}
-            <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-white/40 text-xxs font-mono">
+            <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-white/60 text-xxs font-mono">
               <span className="flex items-center gap-1">
                 <Phone className="w-3 h-3 text-brand-accent" aria-hidden="true" />
                 {language === "id" ? "Dukungan Telepon Aktif" : "Direct Hotline Available"}
