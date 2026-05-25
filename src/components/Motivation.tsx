@@ -54,8 +54,7 @@ export default function Motivation() {
           </h2>
         )}
 
-        {/* Thin minimalist helper stats */}
-        <p className="text-white/45 font-mono text-[9.5px] uppercase tracking-widest mt-10">
+        <p className="text-white/60 font-mono text-[9.5px] uppercase tracking-widest mt-10">
           PROUD TECH · PANGANDARAN EST. 2026 · DIGITAL FREEDOM
         </p>
 
