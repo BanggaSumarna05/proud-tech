@@ -294,6 +294,7 @@ export default function App() {
               <input
                 type="text"
                 required
+                aria-label={language === "id" ? "Pesan konsultasi" : "Consultation message"}
                 placeholder={language === "id" ? "Ketik pesan konsultasimu..." : "Type your consultaion message..."}
                 value={customWaMessage}
                 onChange={(e) => setCustomWaMessage(e.target.value)}

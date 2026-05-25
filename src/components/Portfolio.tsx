@@ -192,7 +192,7 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
                       <span className="text-[9px] font-mono tracking-widest text-brand-accent font-bold uppercase">
                         {project.category} Proyek
                       </span>
-                      <span className="text-[9px] font-mono text-white/50">{project.client}</span>
+                      <span className="text-[9px] font-mono text-white/70">{project.client}</span>
                     </div>
 
                     {/* Middle: Title & Metrics */}

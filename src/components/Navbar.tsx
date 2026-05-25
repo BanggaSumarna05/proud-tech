@@ -157,8 +157,9 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
             <div className="relative flex items-center bg-black/5 hover:bg-black/10 transition-colors p-1 rounded-full border border-brand-border/40 text-[9px] font-bold font-mono select-none">
               <button
                 onClick={() => setLanguage("id")}
+                aria-label="Switch to Indonesian"
                 className={`relative z-10 px-2.5 py-1 rounded-full text-center transition-colors cursor-pointer duration-300 ${
-                  language === "id" ? "text-white animate-pulse-slow" : "text-brand-dark/50 hover:text-brand-dark"
+                  language === "id" ? "text-white animate-pulse-slow" : "text-brand-dark/70 hover:text-brand-dark"
                 }`}
               >
                 ID
@@ -172,8 +173,9 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
               </button>
               <button
                 onClick={() => setLanguage("en")}
+                aria-label="Switch to English"
                 className={`relative z-10 px-2.5 py-1 rounded-full text-center transition-colors cursor-pointer duration-300 ${
-                  language === "en" ? "text-white animate-pulse-slow" : "text-brand-dark/50 hover:text-brand-dark"
+                  language === "en" ? "text-white animate-pulse-slow" : "text-brand-dark/70 hover:text-brand-dark"
                 }`}
               >
                 EN
@@ -249,20 +251,22 @@ export default function Navbar({ onScrollToSection, onOpenConsultation }: Navbar
             <div className="flex items-center bg-black/5 p-0.5 rounded-full border border-brand-border/40 text-[9px] font-bold font-mono">
               <button
                 onClick={() => setLanguage("id")}
+                aria-label="Switch to Indonesian"
                 className={`px-2 py-1 rounded-full transition-all ${
                   language === "id"
                     ? "bg-brand-blue text-white"
-                    : "text-brand-dark/60"
+                    : "text-brand-dark/70"
                 }`}
               >
                 ID
               </button>
               <button
                 onClick={() => setLanguage("en")}
+                aria-label="Switch to English"
                 className={`px-2 py-1 rounded-full transition-all ${
                   language === "en"
                     ? "bg-brand-blue text-white"
-                    : "text-brand-dark/60"
+                    : "text-brand-dark/70"
                 }`}
               >
                 EN

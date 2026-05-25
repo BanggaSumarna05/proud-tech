@@ -196,7 +196,7 @@ export default function Showcase() {
             {/* Visual Focal Point: Beautiful analytical bar charts */}
             <div className="mt-6 bg-[#0a0b0e] rounded-2xl border border-white/10 p-4 h-48 overflow-hidden flex flex-col justify-between shadow-inner">
               <div className="flex justify-between items-center pb-2 border-b border-white/5">
-                <span className="text-[8px] font-mono text-white/50 uppercase tracking-widest font-bold">METRIK RETENSI BISNIS</span>
+                <span className="text-[8px] font-mono text-white/70 uppercase tracking-widest font-bold">METRIK RETENSI BISNIS</span>
                 <span className="text-[9px] text-brand-accent font-mono font-black">+48.2%</span>
               </div>
 
