@@ -78,19 +78,7 @@ export default function Portfolio({ onSelectProject, onViewCaseStudy }: Portfoli
       image: "/images/Kebutuhan Website/foto portofolio/Sistem Informasi BEM FIKES/Sistem Informasi BEM FIKES UMTAS.webp",
       features: ["Integrated API", "News & Event Hub", "Clean Layout"],
     },
-    {
-      title: "Sistem Informasi NAWADIKTI",
-      category: "APP",
-      client: language === "id" ? "NAWADIKTI" : "NAWADIKTI",
-      desc: language === "id"
-        ? "Sistem informasi database terpadu untuk pendataan akademik, penelitian ilmiah, dan sertifikasi perguruan tinggi."
-        : "Integrated database information system for higher education academic records, research publications, and certification.",
-      stats: language === "id" ? "Data Terpusat · Database Skalabel" : "Centralized Data · Scalable Database",
-      color: "from-amber-700 to-rose-950",
-      featured: false,
-      image: "/images/Kebutuhan Website/foto portofolio/Sistem Infornasi NAWADIKTI/Sistem Infomasi NAWADIKTI.webp",
-      features: ["Data Analytics", "Auth Security", "Cloud Ready"],
-    },
+   
     {
       title: "SaaS Rental Mobil",
       category: "WEB",

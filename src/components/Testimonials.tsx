@@ -7,8 +7,8 @@ export default function Testimonials() {
   const testimonials = [
     {
       id: "test-1",
-      name: "Budi Setiawan",
-      role: language === "id" ? "Direktur Utama" : "Managing Director",
+      name: "Sidik Faturahman",
+      role: language === "id" ? "Pemilik CJA Rent Car" : "Owner of CJA Rent Car",
       company: "CJA Rent Car",
       rating: 5,
       project: language === "id" ? "CJA Rent Car Web App" : "CJA Rent Car Web App",
@@ -19,11 +19,11 @@ export default function Testimonials() {
     },
     {
       id: "test-2",
-      name: "Clarissa Putri",
-      role: language === "id" ? "Pendiri & Pemilik" : "Founder & CEO",
+      name: "Maudina Yasmin",
+      role: language === "id" ? "Pemilik CV. Kerabat Wisata" : "Owner of CV. Kerabat Wisata",
       company: "CV. Kerabat Wisata",
       rating: 5,
-      project: language === "id" ? "Dashboard Keuangan" : "Finance Dashboard",
+      project: language === "id" ? "Dashboard Keuangan CV. Kerabat Wisata" : "Finance Dashboard",
       feedback: language === "id"
         ? "Sistem pembukuan kas rental kami jadi 3x lipat lebih rapi dan laporan bulanan selesai instan dalam hitungan detik. Kami sangat terbantu dengan analisis keuntungan otomatis yang disajikan di dashboard!"
         : "Our bookkeeping is now 3x more organized, and monthly cash flow statements generate instantly. The automated profit and loss analysis dashboards have completely upgraded our business control!",
@@ -31,11 +31,11 @@ export default function Testimonials() {
     },
     {
       id: "test-3",
-      name: "Hendra Wijaya",
-      role: language === "id" ? "Ketua Umum" : "President of Student Board",
+      name: "Muhammad Iqbal Setiawan",
+      role: language === "id" ? "Gubernur Mahasiswa BEM FIKES UMTAS 2024/2025" : "Governor of Student Board",
       company: "BEM FIKES UMTAS",
       rating: 5,
-      project: language === "id" ? "Portal Sistem Informasi" : "Information System Portal",
+      project: language === "id" ? "Portal Sistem Informasi BEM FIKES UMTAS" : "Information System Portal BEM FIKES UMTAS",
       feedback: language === "id"
         ? "Desain portalnya sangat modern, cepat diakses, dan memudahkan pengumpulan berkas kegiatan mahasiswa. Kerja sama dengan tim developer Proud Tech berjalan sangat komunikatif dan terstruktur rapi!"
         : "The student portal design is exceptionally modern, fast, and makes event document submissions effortless. Collaborating with the developer team at Proud Tech was highly structured and professional!",
@@ -43,26 +43,26 @@ export default function Testimonials() {
     },
     {
       id: "test-4",
-      name: "Rina Marlina",
+      name: "Elin Marlina", 
       role: language === "id" ? "Pemilik Usaha" : "Business Owner",
-      company: "Dapur Rina Catering",
+      company: "Warung PBM",
       rating: 5,
-      project: language === "id" ? "Landing Page Catering" : "Catering Landing Page",
+      project: language === "id" ? "Landing Page Warung PBM" : "Landing Page Warung PBM",
       feedback: language === "id"
-        ? "Sebelum punya website dari Proud Tech, saya hanya dapat orderan dari mulut ke mulut. Sekarang orderan datang setiap hari dari Google! Prosesnya cepat, timnya sabar menjelaskan, dan hasilnya jauh melampaui ekspektasi saya."
+        ? "Alhamdulillah, sekarang orderan saya lebih banyak dan lebih mudah dijangkau. Prosesnya cepat, timnya sabar menjelaskan, dan hasilnya jauh melampaui ekspektasi saya."
         : "Before getting a website from Proud Tech, I only got orders by word of mouth. Now orders come in daily from Google! The process was fast, the team was patient, and the results far exceeded my expectations.",
       avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150&q=80",
     },
     {
       id: "test-5",
-      name: "Dimas Prasetyo",
-      role: language === "id" ? "CEO & Co-Founder" : "CEO & Co-Founder",
-      company: "TechStart Indonesia",
+      name: "Irpan",
+      role: language === "id" ? "Owner" : "Owner",
+      company: "Kopi Bangga",
       rating: 5,
-      project: language === "id" ? "Platform Web App" : "Web Application Platform",
+      project: language === "id" ? "Landing Page Kopi Bangga" : "Landing Page Kopi Bangga",
       feedback: language === "id"
-        ? "Proud Tech berhasil membangun platform web app kami dalam waktu yang sangat singkat dengan kualitas kode yang sangat bersih. Fitur admin panel-nya intuitif dan tim selalu responsif setiap ada kebutuhan revisi atau penyesuaian."
-        : "Proud Tech successfully built our web app platform in record time with extremely clean code quality. The admin panel is intuitive and the team is always responsive for any revision or adjustment needs.",
+        ? "Sebelum punya website dari Proud Tech, saya hanya dapat orderan dari mulut ke mulut. Sekarang orderan datang setiap hari dari Google! Prosesnya cepat, timnya sabar menjelaskan, dan hasilnya jauh melampaui ekspektasi saya."
+        : "Before getting a website from Proud Tech, I only got orders by word of mouth. Now orders come in daily from Google! The process was fast, the team was patient, and the results far exceeded my expectations.",
       avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150&q=80",
     },
   ];
