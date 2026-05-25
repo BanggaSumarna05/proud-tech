@@ -59,18 +59,29 @@ export default function App() {
 
 
 
-  // Combined scroll handler: scroll-to-top button + progress bar
+  // Combined scroll handler: scroll-to-top button + progress bar (Optimized for Performance)
   useEffect(() => {
     const progressBar = document.getElementById("scroll-progress");
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateScroll = () => {
       setShowScrollTop(window.scrollY > 400);
-      // Update CSS scroll progress bar
       if (progressBar) {
+        // Cache dimensions to prevent forced reflows if possible, or read once per frame
         const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
         const progress = scrollHeight > 0 ? window.scrollY / scrollHeight : 0;
         progressBar.style.transform = `scaleX(${progress})`;
       }
+      ticking = false;
     };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScroll);
+        ticking = true;
+      }
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

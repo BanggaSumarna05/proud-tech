@@ -15,7 +15,10 @@
     </noscript>
     
     <!-- Performa: Preload Hero Image (LCP) -->
-    <link rel="preload" as="image" href="/images/character-waving.webp" />
+    <link rel="preload" as="image" href="/images/character-waving.webp" fetchpriority="high" />
+    
+    <!-- Performa: Preconnect untuk gambar eksternal (Unsplash Avatars) -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 
     
     <!-- Primary Meta Tags -->
